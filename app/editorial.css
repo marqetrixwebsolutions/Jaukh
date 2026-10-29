@@ -1,0 +1,812 @@
+/* Spacious restaurant layouts with Manrope typography throughout. */
+body {
+  font-weight: 400;
+}
+.section-wrap {
+  max-width: 1120px;
+}
+.header {
+  max-width: 1248px;
+  height: 90px;
+  border-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #faf9f6ed;
+  backdrop-filter: blur(16px);
+}
+.nav a {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.brand {
+  font-weight: 500;
+  flex-direction: row;
+  gap: 12px;
+}
+.brand .brand-emblem {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.brand .brand-wordmark {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 0;
+}
+.brand-wordmark small {
+  display: block;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 6px;
+  letter-spacing: 2.5px;
+  margin-top: 5px;
+}
+.loader-emblem {
+  width: 112px;
+  height: 112px;
+  padding: 16px;
+  background: var(--ivory);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+.loader-emblem img {
+  object-fit: contain;
+}
+.button {
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.header .button {
+  background: var(--ink);
+}
+.hero.editorial-hero {
+  height: auto;
+  min-height: calc(100svh - 90px);
+  padding: 100px 24px 110px;
+}
+.editorial-hero .floating-hero-content {
+  max-width: 820px;
+}
+.hero-logo-slot {
+  width: clamp(120px, 12vw, 176px);
+  height: clamp(120px, 12vw, 176px);
+  margin: 0 auto 28px;
+}
+.hero-center-emblem {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.travelling-logo {
+  position: fixed;
+  z-index: 55;
+  pointer-events: none;
+  visibility: hidden;
+  object-fit: contain;
+}
+.hero-dish-extra-left {
+  width: 130px;
+  height: 130px;
+  left: 3%;
+  top: 47%;
+  transform: rotate(18deg);
+}
+.hero-dish-extra-right {
+  width: 125px;
+  height: 125px;
+  right: 4%;
+  top: 42%;
+  transform: rotate(-14deg);
+}
+.hero-dish-extra-top {
+  width: 110px;
+  height: 110px;
+  left: calc(50% - 55px);
+  top: 28px;
+  transform: rotate(8deg);
+}
+.editorial-hero .floating-hero-content h1 {
+  max-width: 660px;
+  font-size: clamp(48px, 6.3vw, 96px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -3px;
+  color: var(--ink);
+}
+.editorial-hero .hero-name {
+  display: block;
+  color: var(--plum);
+  font-size: clamp(96px, 10vw, 150px);
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+}
+.editorial-hero .hero-restaurant {
+  display: block;
+  color: #9b6a28;
+  font-size: clamp(23px, 2.5vw, 36px);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  line-height: 1.2;
+  margin-top: 18px;
+}
+.editorial-hero .hero-dish-curry {
+  width: clamp(150px, 14vw, 220px);
+  height: clamp(150px, 14vw, 220px);
+  left: 5%;
+  top: 6%;
+}
+.editorial-hero .hero-dish-tandoor {
+  width: clamp(140px, 12vw, 185px);
+  height: clamp(140px, 12vw, 185px);
+  right: 5%;
+  top: 6%;
+}
+.editorial-hero .hero-dish-extra-left {
+  left: 3%;
+  top: 42%;
+}
+.editorial-hero .hero-dish-extra-right {
+  right: 3%;
+  top: 43%;
+}
+.editorial-hero .hero-dish-stir-fry {
+  width: 170px;
+  height: 170px;
+  left: 8%;
+  bottom: 5%;
+}
+.editorial-hero .hero-dish-biryani {
+  width: 210px;
+  height: 210px;
+  right: 7%;
+  bottom: 4%;
+}
+.editorial-hero .hero-dish-extra-top {
+  left: 25%;
+  top: 8%;
+}
+.editorial-hero .hero-leaf {
+  left: 41%;
+  top: 4%;
+}
+.editorial-hero .floating-hero-content > .eyebrow {
+  margin-bottom: 18px;
+  font-size: 9px;
+  font-weight: 600;
+}
+.editorial-hero .floating-hero-content .hero-description {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-top: 20px;
+  max-width: 620px;
+}
+.editorial-hero .floating-hero-footer {
+  display: flex;
+}
+.hero-actions {
+  gap: 14px;
+}
+.editorial-hero .hero-actions .text-link {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 17px 21px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.film-section {
+  max-width: none;
+  margin: clamp(140px, 18svh, 220px) auto 0;
+  padding: 0 32px;
+}
+.film-frame {
+  height: clamp(580px, 72svh, 780px);
+  border-radius: 24px;
+}
+.story {
+  overflow-x: clip;
+  text-align: center;
+  padding: 48px 0 64px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: none;
+}
+.story-gallery {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 44svh, 460px);
+  flex-shrink: 0;
+  overflow: hidden;
+  margin: 0 0 8px;
+}
+.circular-gallery-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.circular-gallery-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.circular-gallery-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: clamp(4px, 1vw, 16px);
+  padding: 32px 18px;
+  overflow: hidden;
+}
+.circular-gallery-fallback img {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 215px;
+  height: auto;
+  max-height: 55%;
+  aspect-ratio: 1 / 1.3;
+  object-fit: cover;
+  border-radius: 20px;
+  transform: translateY(
+      calc((var(--fallback-index) - 3) * (var(--fallback-index) - 3) * 6px)
+    )
+    rotate(calc((var(--fallback-index) - 3) * 8deg));
+}
+.circular-gallery[data-renderer="webgl"] .circular-gallery-fallback {
+  visibility: hidden;
+}
+.story-copy {
+  max-width: 1000px;
+  padding: 0 45px;
+  margin: 0 auto;
+}
+.story-copy .eyebrow {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.story .story-text {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(19px, 1.8vw, 25px);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.35px;
+  text-wrap: pretty;
+}
+.story > .eyebrow {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.story .tiny-star {
+  display: none;
+}
+.story h2 {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(29px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -1px;
+  text-wrap: balance;
+}
+.story-bottom {
+  display: block;
+  margin-top: 20px;
+}
+.story-bottom > p {
+  font-size: 15px;
+  max-width: 640px;
+  margin: auto;
+  line-height: 1.65;
+}
+.round-link {
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 370px;
+  margin: 28px auto 0;
+  padding: 5px 6px 5px 25px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+.round-link span {
+  background: var(--tint);
+  border-color: transparent;
+  color: var(--plum);
+  width: 43px;
+  height: 43px;
+}
+.story .text {
+  max-width: 650px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  font-size: 1.25rem;
+}
+.dining-showcase {
+  overflow-x: clip;
+  padding-top: 80px;
+  padding-bottom: 140px;
+}
+.showcase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.showcase-copy,
+.showcase-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 400px;
+}
+.showcase-copy {
+  padding: 43px 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.showcase-menu {
+  background: var(--plum);
+  color: var(--ivory);
+}
+.showcase-place {
+  background: var(--tint);
+}
+.showcase-copy .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  margin-bottom: 20px;
+}
+.showcase-copy h2 {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.9px;
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+.showcase-copy p {
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 350px;
+}
+.showcase-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  padding: 20px 0 0;
+  margin-top: auto;
+  background: transparent;
+  color: inherit;
+}
+.showcase-link:hover {
+  color: var(--plum);
+}
+.showcase-menu .showcase-link:hover {
+  color: var(--gold);
+}
+.showcase-photo img {
+  transition: transform 0.7s;
+}
+.showcase-row:hover .showcase-photo img {
+  transform: scale(1.035);
+}
+.highlights h2,
+.vision h2,
+.vision .mission h3,
+.ingredients-heading h2,
+.menu-heading h2,
+.reservation-section h2 {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+}
+.ingredients-heading h2 {
+  font-size: 40px;
+}
+.highlights,
+.vision {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+.highlight-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 48px;
+}
+.highlight-actions .button {
+  gap: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+}
+.highlight-actions .button-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+.highlight-actions .button-outline:hover {
+  border-color: var(--plum);
+  color: var(--plum);
+  background: var(--tint);
+}
+.highlight-actions svg {
+  flex-shrink: 0;
+}
+.vision {
+  gap: 55px;
+}
+.vision-image {
+  border-radius: 16px;
+  height: 530px;
+}
+.menu-heading {
+  display: block;
+  text-align: center;
+}
+.menu-heading .eyebrow {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.menu-heading h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+.menu-heading > p {
+  margin-top: 14px;
+  font-size: 15px;
+}
+.menu-grid {
+  gap: 16px;
+  margin-top: 35px;
+}
+.menu-card {
+  overflow: hidden;
+  border-radius: 15px;
+  background: #f7df53;
+}
+.menu-card:nth-child(2) {
+  background: var(--surface);
+}
+.menu-card:nth-child(3) {
+  background: #181718;
+  color: white;
+}
+.menu-card:nth-child(4) {
+  background: #2349d4;
+  color: white;
+}
+.menu-image {
+  aspect-ratio: 1.3;
+  border-radius: 0 0 12px 12px;
+}
+.menu-image > span {
+  display: none;
+}
+.menu-info {
+  display: block;
+  padding: 23px 22px;
+  border: none;
+  min-height: 130px;
+}
+.menu-info h3 {
+  font-size: 19px;
+  line-height: 1.15;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.4px;
+}
+.menu-info p {
+  font-size: 8px;
+  color: inherit;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+.menu-info svg {
+  margin-top: 15px;
+  color: inherit;
+}
+.reservation-section {
+  max-width: 1130px;
+  margin: 0 auto 32px;
+  border-radius: 20px;
+  background: #f2f1ee;
+  color: var(--ink);
+  padding: 65px 25px 45px;
+}
+.reservation-section h2 {
+  font-size: 40px;
+  letter-spacing: -0.8px;
+}
+.reservation-section > .eyebrow,
+.reservation-section > p,
+.reservation-detail {
+  color: var(--muted);
+}
+.reservation-section > p {
+  font-size: 15px;
+}
+.reservation-section .button-light {
+  background: transparent;
+  border: 1px solid #c8c1b9;
+  color: var(--ink);
+  min-width: 290px;
+}
+.reservation-detail {
+  margin-top: 32px;
+}
+.reservation-flower {
+  display: none;
+}
+.footer {
+  max-width: none;
+  background: #111;
+  color: var(--ivory);
+  padding-left: max(40px, calc((100vw - 976px) / 2));
+  padding-right: max(40px, calc((100vw - 976px) / 2));
+}
+.footer-links > span,
+.footer-top > div:first-child > p,
+.footer-bottom {
+  color: #b4afa8;
+}
+.footer-note {
+  color: var(--ivory);
+}
+.footer-bottom {
+  border-color: #ffffff26;
+}
+@media (max-width: 767px) {
+  .header {
+    height: 80px;
+    padding: 0 22px;
+  }
+  .hero.editorial-hero {
+    min-height: calc(100svh - 80px);
+    padding: 180px 22px;
+  }
+  .header .brand {
+    gap: 7px;
+  }
+  .header .brand-emblem {
+    width: 32px;
+    height: 38px;
+  }
+  .header .brand-wordmark {
+    font-size: 23px;
+  }
+  .header .brand-wordmark small {
+    font-size: 4px;
+    letter-spacing: 1.8px;
+  }
+  .header > .button {
+    margin-right: 10px;
+    font-size: 8px;
+    gap: 7px;
+    padding: 11px 9px;
+  }
+  .hero-dish-curry {
+    top: 20px;
+  }
+  .hero-dish-tandoor {
+    top: 24px;
+  }
+  .hero-dish-biryani {
+    bottom: 55px;
+  }
+  .editorial-hero .floating-hero-content h1 {
+    font-size: clamp(38px, 10.8vw, 56px);
+    letter-spacing: -1.5px;
+  }
+  .editorial-hero .hero-name {
+    font-size: clamp(68px, 20vw, 92px);
+  }
+  .editorial-hero .hero-restaurant {
+    font-size: 18px;
+    letter-spacing: 0.24em;
+    text-indent: 0.24em;
+    margin-top: 14px;
+  }
+  .editorial-hero .hero-dish-curry {
+    width: 90px;
+    height: 90px;
+    left: 10px;
+    top: 16px;
+  }
+  .editorial-hero .hero-dish-tandoor {
+    width: 80px;
+    height: 80px;
+    right: 10px;
+    top: 16px;
+  }
+  .editorial-hero .hero-dish-extra-top {
+    width: 60px;
+    height: 60px;
+    left: calc(50% - 30px);
+    top: 18px;
+  }
+  .editorial-hero .hero-dish-extra-left {
+    width: 64px;
+    height: 64px;
+    left: 23%;
+    top: 105px;
+  }
+  .editorial-hero .hero-dish-extra-right {
+    width: 64px;
+    height: 64px;
+    right: 23%;
+    top: 105px;
+    bottom: auto;
+  }
+  .editorial-hero .hero-dish-stir-fry {
+    width: 110px;
+    height: 110px;
+    left: 18px;
+    bottom: 35px;
+  }
+  .editorial-hero .hero-dish-biryani {
+    width: 120px;
+    height: 120px;
+    right: 18px;
+    bottom: 35px;
+  }
+  .editorial-hero .hero-leaf {
+    left: 6%;
+    top: 28%;
+  }
+  .hero-logo-slot {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 24px;
+  }
+  .hero-dish-extra-left {
+    width: 58px;
+    height: 58px;
+    left: 27%;
+    top: 55px;
+  }
+  .hero-dish-extra-right {
+    width: 58px;
+    height: 58px;
+    right: 28%;
+    top: auto;
+    bottom: 65px;
+  }
+  .hero-dish-extra-top {
+    width: 56px;
+    height: 56px;
+    left: calc(50% - 28px);
+    top: 115px;
+  }
+  .editorial-hero .floating-hero-content .hero-description {
+    font-size: 13px;
+  }
+  .editorial-hero .hero-actions {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .editorial-hero .hero-actions .text-link {
+    padding: 14px 15px;
+    font-size: 10px;
+  }
+  .film-section {
+    padding: 0 16px;
+    margin-top: 120px;
+  }
+  .film-frame {
+    height: clamp(420px, 58svh, 520px);
+  }
+  .story {
+    padding: 28px 0 48px;
+  }
+  .story-gallery {
+    height: clamp(240px, 34svh, 330px);
+    margin: 0 0 12px;
+  }
+  .story-copy {
+    padding: 0 26px;
+  }
+  .story .story-text {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .story h2 {
+    font-size: 29px;
+  }
+  .story-bottom > p {
+    font-size: 14px;
+  }
+  .story .text {
+    font-size: 1.25rem;
+  }
+  .dining-showcase {
+    padding-top: 50px;
+    padding-bottom: 85px;
+  }
+  .showcase-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .showcase-copy {
+    padding: 30px;
+    min-height: 340px;
+  }
+  .showcase-copy h2 {
+    font-size: 32px;
+  }
+  .showcase-copy p {
+    font-size: 15px;
+  }
+  .showcase-photo {
+    height: 320px;
+    min-height: 0;
+  }
+  .showcase-row-reverse {
+    gap: 0;
+  }
+  .highlights,
+  .vision {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .highlight-actions {
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 12px;
+  }
+  .highlight-actions .button {
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .menu-heading h2 {
+    font-size: 30px;
+  }
+  .menu-heading > p {
+    font-size: 14px;
+  }
+  .menu-grid {
+    gap: 13px;
+  }
+  .menu-info {
+    padding: 19px 13px;
+    min-height: 125px;
+  }
+  .menu-info h3 {
+    font-size: 16px;
+  }
+  .menu-info p {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+  .reservation-section {
+    margin: 0 16px 24px;
+    padding: 48px 22px 35px;
+  }
+  .reservation-section h2 {
+    font-size: 32px;
+  }
+  .reservation-section .button-light {
+    min-width: 0;
+    width: 100%;
+  }
+  .footer {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
