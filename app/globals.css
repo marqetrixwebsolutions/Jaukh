@@ -540,14 +540,6 @@ p {
   flex: 0 0 auto;
   width: min(32vw, 410px);
   aspect-ratio: 1;
-  transform: rotate(-5deg);
-  transition: transform 0.35s ease;
-}
-.dish-card:nth-child(even) {
-  transform: rotate(5deg);
-}
-.dish-card.is-active {
-  transform: rotate(0deg);
 }
 .dish-rim {
   width: 100%;

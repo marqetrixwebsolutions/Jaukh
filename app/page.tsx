@@ -199,7 +199,9 @@ export default function Home() {
         },
       });
       gsap.to(cards, {
+        duration: 1,
         rotation: 360,
+        stagger: { amount: cards.length - 2 },
         ease: "none",
         scrollTrigger: {
           trigger: ".plate-section",
@@ -233,33 +235,76 @@ export default function Home() {
       const headerLogo = root.current?.querySelector<HTMLElement>(
         ".header .brand-emblem",
       );
-      if (heroLogo && headerLogo) {
-        gsap.set(".hero-center-emblem", { autoAlpha: 0 });
-        gsap.set(".travelling-logo", { visibility: "visible" });
-        gsap.fromTo(
-          ".travelling-logo",
-          {
-            left: () => heroLogo.getBoundingClientRect().left,
-            top: () => heroLogo.getBoundingClientRect().top + window.scrollY,
-            width: () => heroLogo.offsetWidth,
-            height: () => heroLogo.offsetHeight,
+      const heroSection =
+        root.current?.querySelector<HTMLElement>("#home");
+      const travellingLogo =
+        root.current?.querySelector<HTMLElement>(".travelling-logo");
+      const heroEmblem =
+        root.current?.querySelector<HTMLElement>(".hero-center-emblem");
+      if (heroLogo && headerLogo && heroSection && travellingLogo && heroEmblem) {
+        gsap.set(headerLogo, { autoAlpha: 0 });
+        gsap.set(travellingLogo, { visibility: "visible" });
+        const logoTransfer = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroSection,
+            start: "top top",
+            end: () => `+=${Math.min(window.innerHeight * 0.65, 650)}`,
+            scrub: 0.7,
+            invalidateOnRefresh: true,
           },
-          {
-            left: () => headerLogo.getBoundingClientRect().left,
-            top: () => headerLogo.getBoundingClientRect().top,
-            width: () => headerLogo.offsetWidth,
-            height: () => headerLogo.offsetHeight,
-            ease: "power1.inOut",
-            scrollTrigger: {
-              trigger: "#home",
-              start: () =>
-                `top ${root.current?.querySelector<HTMLElement>(".header")?.offsetHeight ?? 90}px`,
-              end: () => `+=${Math.min(window.innerHeight * 0.65, 650)}`,
-              scrub: 0.7,
-              invalidateOnRefresh: true,
+        });
+        logoTransfer
+          .fromTo(
+            travellingLogo,
+            {
+              left: () => heroLogo.getBoundingClientRect().left,
+              top: () =>
+                heroLogo.getBoundingClientRect().top -
+                heroSection.getBoundingClientRect().top,
+              width: () => heroLogo.offsetWidth,
+              height: () => heroLogo.offsetHeight,
+              autoAlpha: 0,
             },
+            {
+              left: () => headerLogo.getBoundingClientRect().left,
+              top: () => headerLogo.getBoundingClientRect().top,
+              width: () => headerLogo.offsetWidth,
+              height: () => headerLogo.offsetHeight,
+              duration: 0.92,
+              ease: "none",
+            },
+          )
+          .to(heroEmblem, { autoAlpha: 0, duration: 0.08 }, 0.04)
+          .to(travellingLogo, { autoAlpha: 1, duration: 0.08 }, 0.04)
+          .to(headerLogo, { autoAlpha: 1, duration: 0.12 }, 0.84)
+          .to(travellingLogo, { autoAlpha: 0, duration: 0.08 }, 0.92);
+
+        gsap.to(".floating-image-position", {
+          x: (_index: number, element: HTMLElement) =>
+            element.dataset.entrance === "left"
+              ? -window.innerWidth
+              : element.dataset.entrance === "right"
+                ? window.innerWidth
+                : 0,
+          y: (_index: number, element: HTMLElement) =>
+            element.dataset.entrance === "top"
+              ? -window.innerHeight
+              : element.dataset.entrance === "bottom"
+                ? window.innerHeight
+                : 0,
+          scale: 0.55,
+          autoAlpha: 0,
+          ease: "none",
+          stagger: 0.025,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: heroSection,
+            start: "top top",
+            end: () => `+=${Math.min(window.innerHeight * 0.55, 500)}`,
+            scrub: 0.7,
+            invalidateOnRefresh: true,
           },
-        );
+        });
       }
       gsap
         .timeline()
@@ -275,7 +320,6 @@ export default function Home() {
         .set(".loader", { display: "none" })
         .call(() => lenis?.start())
         .addLabel("hero-ready")
-        .from(".travelling-logo", { opacity: 0, duration: 0.8 }, "hero-ready")
         .from(
           ".hero-reveal",
           {
@@ -575,9 +619,9 @@ export default function Home() {
         </div>
         <p>Good things take a little time.</p>
       </div>
-      <a className="skip-link" href="#main">
+      {/* <a className="skip-link" href="#main">
         Skip to content
-      </a>
+      </a> */}
       <header className={`header${headerVisible ? "" : " header-hidden"}`}>
         <Brand />
         <nav
@@ -614,7 +658,7 @@ export default function Home() {
           title={
             <>
               <span className="hero-name">JOUKH</span>{" "}
-              <span className="hero-restaurant">RESTAURANT</span>
+              <span className="hero-restaurant">INDIAN RESTAURANT</span>
             </>
           }
           logoSrc="/assests/Deep%20Purple%20Chef%20Emblem.png"
