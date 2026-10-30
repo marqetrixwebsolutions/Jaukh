@@ -594,7 +594,7 @@ export default function Home() {
 
   return (
     <div ref={root} className="site-shell">
-
+      <div className="site-gradient-background" aria-hidden="true" />
       <img
         className="travelling-logo"
         src="/assests/Deep%20Purple%20Chef%20Emblem.png"
