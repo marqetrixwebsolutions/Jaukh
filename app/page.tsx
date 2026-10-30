@@ -652,7 +652,7 @@ export default function Home() {
           ))}
         </nav>
         <button className="button button-small" onClick={reserve}>
-          Reserve a table <ArrowUpRight size={15} />
+          RESERVE A TABLE <ArrowUpRight size={15} />
         </button>
         <button
           className="mobile-toggle"

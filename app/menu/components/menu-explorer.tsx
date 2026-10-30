@@ -53,7 +53,7 @@ export function MenuExplorer() {
           aria-label="Main navigation"
         >
           <Link href="/" onClick={() => setMobileNavOpen(false)}>
-            Home
+             Our story
           </Link>
           <Link
             href="/menu"
@@ -63,11 +63,11 @@ export function MenuExplorer() {
             The menu
           </Link>
           <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
-            Our story
+         The experience
           </Link>
         </nav>
         <Link className={styles.homeLink} href="/">
-          Reserve a table <ArrowUpRight size={15} />
+          RESERVE A TABLE <ArrowUpRight size={15} />
         </Link>
         <button
           className={styles.mobileToggle}

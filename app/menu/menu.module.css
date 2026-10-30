@@ -20,7 +20,7 @@
   justify-content: space-between;
   gap: 25px;
   margin: 0 44px;
-  border-bottom: 1px solid #ded8d1;
+  /* border-bottom: 1px solid #ded8d1; */
 }
 .brand {
   display: inline-flex;
@@ -676,8 +676,13 @@
   height: 90px;
   margin: 0;
   padding: 0 max(24px, calc((100vw - 1300px) / 2));
-  border: 0;
-  background: transparent;
+  /* border-bottom: 1px solid rgb(229 191 125 / 20%); */
+  background: rgba(16, 14, 13, 0.39);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.158),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
+  -webkit-backdrop-filter: blur(24px) saturate(155%);
+  backdrop-filter: blur(24px) saturate(155%);
 }
 
 .brand {
@@ -828,7 +833,7 @@
 }
 
 .viewport {
-  inset: 90px 0 0;
+  inset: 0;
 }
 
 .viewport::before,
@@ -1063,7 +1068,7 @@
   }
 
   .viewport {
-    inset: 80px 0 0;
+    inset: 0;
   }
 
   .board {

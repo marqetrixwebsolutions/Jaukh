@@ -24,7 +24,7 @@ async function main() {
     })),
   );
   await page
-    .getByRole("button", { name: "Reserve a table", exact: true })
+    .getByRole("button", { name: "RESERVE A TABLE", exact: true })
     .click();
   await page.getByLabel("Your name").fill("Preview Guest");
   await page.getByLabel("Email address").fill("guest@example.com");
