@@ -7,6 +7,7 @@ import { SplitText } from "gsap/SplitText";
 import Lenis from "lenis";
 import { FloatingFoodHero } from "@/components/ui/hero-section-7";
 import { CircularGallery } from "@/components/ui/circular-gallery-2";
+import { ObjectivesSection } from "@/components/sections/objectives/objectives-gallery";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -641,10 +642,17 @@ export default function Home() {
             ["Our story", "story"],
             ["The menu", "menu"],
             ["The experience", "experience"],
+            ["Contact", "contact"],
           ].map(([label, id]) => (
             <a
               key={id}
-              href={id === "menu" ? "/menu" : `#${id}`}
+              href={
+                id === "menu"
+                  ? "/menu"
+                  : id === "contact"
+                    ? "/contact"
+                    : `#${id}`
+              }
               onClick={() => setMobile(false)}
             >
               {label}
@@ -932,7 +940,7 @@ export default function Home() {
             </div>
           </div>
           <div className="ingredients-foot">
-            <span>HONEST INGREDIENTS. EXTRAORDINARY FLAVOUR.</span>
+            {/* <span>HONEST INGREDIENTS. EXTRAORDINARY FLAVOUR.</span> */}
             {/* <span>KEEP SCROLLING ↓</span> */}
           </div>
         </section>
@@ -1111,6 +1119,7 @@ export default function Home() {
             dishes.
           </p>
         </section>
+        <ObjectivesSection onReserve={reserve} />
         {/* <section className="reservation-section">
           <span className="reservation-flower">✳</span>
           <div className="eyebrow reveal">THERE’S A PLACE FOR YOU HERE</div>
@@ -1139,11 +1148,12 @@ export default function Home() {
             {/* <a href="#home">Home</a> */}
             <a href="#story">Our story</a>
             <a href="/menu">Our menu</a>
+            <a href="/contact">Contact</a>
           </div>
           <div className="footer-links">
             <span>STAY A LITTLE</span>
             <a href="#experience">The experience</a>
-            <a href="#vision">Our vision</a>
+            <a href="#objectives">Our objectives</a>
             <button onClick={reserve}>
               Reservations <ArrowUpRight size={13} />
             </button>

@@ -65,6 +65,9 @@ export function MenuExplorer() {
           <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
          The experience
           </Link>
+          <Link href="/contact" onClick={() => setMobileNavOpen(false)}>
+            Contact
+          </Link>
         </nav>
         <Link className={styles.homeLink} href="/">
           RESERVE A TABLE <ArrowUpRight size={15} />
