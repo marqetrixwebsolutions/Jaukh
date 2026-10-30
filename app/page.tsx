@@ -83,11 +83,11 @@ const categories = [
 ];
 
 const plateImages = [
-  {
-    src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
-    name: "Garnished Chicken Curry",
-    alt: "Garnished chicken curry served in a black bowl",
-  },
+  // {
+  //   src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
+  //   name: "Garnished Chicken Curry",
+  //   alt: "Garnished chicken curry served in a black bowl",
+  // },
   {
     src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%282%29.png",
     name: "Chicken Curry with Ginger",
@@ -200,8 +200,8 @@ export default function Home() {
       });
       gsap.to(cards, {
         duration: 1,
-        rotation: 360,
-        stagger: { amount: cards.length - 2 },
+        rotation: 12,
+        stagger: { amount: cards.length - 1 },
         ease: "none",
         scrollTrigger: {
           trigger: ".plate-section",

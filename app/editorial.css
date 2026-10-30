@@ -49,12 +49,13 @@ body {
   margin-top: 5px;
 }
 .loader-emblem {
-  width: 112px;
-  height: 112px;
-  padding: 16px;
+  width: 120px;
+  height: 120px;
+  padding: 8px;
   /* background: var(--ivory); */
   border-radius: 50%;
-  margin: 0 auto 20px;
+  margin: 0 auto 8px;
+  flex: 0 0 auto;
 }
 .loader-emblem img {
   object-fit: contain;
@@ -593,6 +594,13 @@ body {
   border-color: #ffffff26;
 }
 @media (max-width: 767px) {
+  .loader-brand {
+    gap: 5px;
+  }
+  .loader-emblem {
+    width: 92px;
+    height: 92px;
+  }
   .header {
     height: 80px;
     padding: 0 22px;
