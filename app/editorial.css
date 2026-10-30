@@ -947,10 +947,13 @@ body {
 
 .ingredients-section {
   background:
-    radial-gradient(ellipse at 50% 45%, rgb(188 139 88 / 9%), transparent 48%),
-    rgb(23 20 19 / 58%);
-  border-top: 1px solid rgb(229 191 125 / 10%);
-  border-bottom: 1px solid rgb(229 191 125 / 10%);
+    radial-gradient(ellipse at 50% 42%, rgb(188 139 88 / 10%), transparent 52%),
+    linear-gradient(
+      180deg,
+      rgb(23 20 19 / 64%) 0%,
+      rgb(23 20 19 / 46%) 68%,
+      rgb(16 14 13 / 0%) 100%
+    );
 }
 
 .ingredients-heading em,
@@ -976,7 +979,7 @@ body {
 
 .plate-section {
   background:
-    radial-gradient(ellipse at 50% 42%, rgb(73 51 41 / 34%) 0, transparent 55%);
+    radial-gradient(ellipse at 50% 35%, rgb(73 51 41 / 24%) 0, transparent 62%);
 }
 
 .dish-rim {
