@@ -226,7 +226,6 @@ export function DraggableMenuGrid({
                 </span>
                 <span className={styles.cardCaption}>
                   <span>{dish.name}</span>
-                  <small>{dish.category.replace("-", " ")}</small>
                 </span>
               </button>
             ))}

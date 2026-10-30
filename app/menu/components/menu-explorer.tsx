@@ -69,7 +69,7 @@ export function MenuExplorer() {
             Contact
           </Link>
         </nav>
-        <Link className={styles.homeLink} href="/">
+        <Link className={styles.homeLink} href="/contact">
           RESERVE A TABLE <ArrowUpRight size={15} />
         </Link>
         <button

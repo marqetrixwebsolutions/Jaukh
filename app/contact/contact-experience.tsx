@@ -77,9 +77,6 @@ export function ContactExperience() {
           className={`${styles.navigation}${mobileNavOpen ? ` ${styles.navigationOpen}` : ""}`}
           aria-label="Main navigation"
         >
-          <Link href="/" onClick={() => setMobileNavOpen(false)}>
-            Home
-          </Link>
           <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
             Our story
           </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -141,17 +142,20 @@ function Brand() {
 }
 
 export default function Home() {
+  const router = useRouter();
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const [mobile, setMobile] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
+  const [headerLogoOnly, setHeaderLogoOnly] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [activeDish, setActiveDish] = useState(0);
   const [reservation, setReservation] = useState(false);
   const [saved, setSaved] = useState(false);
   const [today, setToday] = useState("");
+  const logoTransferDistance = () => Math.min(window.innerHeight * 0.3, 240);
   useEffect(() => {
     setToday(
       new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }),
@@ -201,9 +205,7 @@ export default function Home() {
         },
       });
       gsap.to(cards, {
-        duration: 1,
-        rotation: 12,
-        stagger: { amount: cards.length - 1 },
+        rotation: 90,
         ease: "none",
         scrollTrigger: {
           trigger: ".plate-section",
@@ -234,6 +236,7 @@ export default function Home() {
       }
       const heroLogo =
         root.current?.querySelector<HTMLElement>(".hero-logo-slot");
+      const header = root.current?.querySelector<HTMLElement>(".header");
       const headerLogo = root.current?.querySelector<HTMLElement>(
         ".header .brand-emblem",
       );
@@ -245,6 +248,7 @@ export default function Home() {
       );
       if (
         heroLogo &&
+        header &&
         headerLogo &&
         heroSection &&
         travellingLogo &&
@@ -256,11 +260,19 @@ export default function Home() {
           scrollTrigger: {
             trigger: heroSection,
             start: "top top",
-            end: () => `+=${Math.min(window.innerHeight * 0.65, 650)}`,
+            end: () => `+=${logoTransferDistance()}`,
             scrub: 0.7,
             invalidateOnRefresh: true,
           },
         });
+        const headerLogoPosition = () => {
+          const logoBounds = headerLogo.getBoundingClientRect();
+          const headerBounds = header.getBoundingClientRect();
+          return {
+            left: logoBounds.left,
+            top: logoBounds.top - headerBounds.top,
+          };
+        };
         logoTransfer
           .fromTo(
             travellingLogo,
@@ -274,8 +286,8 @@ export default function Home() {
               autoAlpha: 0,
             },
             {
-              left: () => headerLogo.getBoundingClientRect().left,
-              top: () => headerLogo.getBoundingClientRect().top,
+              left: () => headerLogoPosition().left,
+              top: () => headerLogoPosition().top,
               width: () => headerLogo.offsetWidth,
               height: () => headerLogo.offsetHeight,
               duration: 0.92,
@@ -284,8 +296,7 @@ export default function Home() {
           )
           .to(heroEmblem, { autoAlpha: 0, duration: 0.08 }, 0.04)
           .to(travellingLogo, { autoAlpha: 1, duration: 0.08 }, 0.04)
-          .to(headerLogo, { autoAlpha: 1, duration: 0.12 }, 0.84)
-          .to(travellingLogo, { autoAlpha: 0, duration: 0.08 }, 0.92);
+          .set(headerLogo, { autoAlpha: 0 }, 0.92);
 
         gsap.to(".floating-image-position", {
           xPercent: (_index: number, element: HTMLElement) =>
@@ -456,6 +467,20 @@ export default function Home() {
             scrollTrigger: { trigger: el, start: "top 92%", once: true },
           }),
         );
+      gsap.from(".menu-card-reveal", {
+        y: 32,
+        scale: 0.96,
+        opacity: 0,
+        duration: 0.75,
+        stagger: 0.12,
+        ease: "power3.out",
+        clearProps: "transform",
+        scrollTrigger: {
+          trigger: ".menu-grid",
+          start: "top 88%",
+          once: true,
+        },
+      });
       mm.add("(min-width: 768px)", () => {
         gsap
           .timeline({
@@ -573,13 +598,20 @@ export default function Home() {
       previousY = currentY;
 
       if (idleTimer) clearTimeout(idleTimer);
-      if (currentY <= 12) {
+      const logoTransferEnd = logoTransferDistance();
+      if (currentY <= logoTransferEnd + 12) {
         setHeaderVisible(true);
+        setHeaderLogoOnly(false);
         return;
       }
 
-      if (direction > 2) setHeaderVisible(false);
-      else if (direction < -2) setHeaderVisible(true);
+      if (direction > 2) {
+        setHeaderVisible(false);
+        setHeaderLogoOnly(true);
+      } else if (direction < -2) {
+        setHeaderVisible(true);
+        setHeaderLogoOnly(false);
+      }
 
       idleTimer = setTimeout(() => setHeaderVisible(false), 1800);
     };
@@ -596,8 +628,7 @@ export default function Home() {
     setSaved(false);
   };
   const reserve = () => {
-    setSaved(false);
-    setReservation(true);
+    router.push("/contact");
   };
 
   return (
@@ -631,7 +662,9 @@ export default function Home() {
       {/* <a className="skip-link" href="#main">
         Skip to content
       </a> */}
-      <header className={`header${headerVisible ? "" : " header-hidden"}`}>
+      <header
+        className={`header${headerVisible ? "" : " header-hidden"}${headerLogoOnly ? " header-logo-only" : ""}`}
+      >
         <Brand />
         <nav
           aria-label="Main navigation"
@@ -1092,7 +1125,7 @@ export default function Home() {
           <div className="menu-grid">
             {categories.map((item, i) => (
               <button
-                className="menu-card reveal"
+                className="menu-card menu-card-reveal"
                 key={item.name}
                 onClick={() => setSelected(i)}
               >

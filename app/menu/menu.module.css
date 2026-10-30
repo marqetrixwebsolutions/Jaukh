@@ -202,24 +202,17 @@
 }
 .cardCaption {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 17px 3px 0;
-  align-items: start;
+  justify-content: center;
+  /* gap: 4px; */
+  padding: 5px 3px 0;
+  align-items: center;
+  text-align: center;
 }
 .cardCaption > span {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   font-weight: 600;
-  max-width: 75%;
-}
-.cardCaption small {
-  font-size: 7px;
-  color: #8d827d;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  margin-top: 3px;
+  max-width: 100%;
 }
 .utilityBar {
   position: absolute;
@@ -570,14 +563,10 @@
     padding: 8px;
   }
   .cardCaption {
-    padding: 13px 1px 0;
+    padding: 3px 1px 0;
   }
   .cardCaption > span {
     font-size: 10px;
-  }
-  .cardCaption small {
-    font-size: 6px;
-    letter-spacing: 0.4px;
   }
   .utilityBar {
     bottom: 142px;

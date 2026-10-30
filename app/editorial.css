@@ -480,6 +480,12 @@ body {
   display: block;
   text-align: center;
 }
+.menu-section.section-wrap {
+  width: min(1300px, calc(100% - 48px));
+  max-width: 1300px;
+  padding-right: 0;
+  padding-left: 0;
+}
 .menu-heading .eyebrow {
   justify-content: center;
   margin-bottom: 16px;
@@ -580,8 +586,8 @@ body {
   max-width: none;
   background: #111;
   color: var(--ivory);
-  padding-left: max(40px, calc((100vw - 976px) / 2));
-  padding-right: max(40px, calc((100vw - 976px) / 2));
+  padding-left: max(24px, calc((100vw - 1300px) / 2));
+  padding-right: max(24px, calc((100vw - 1300px) / 2));
 }
 .footer-links > span,
 .footer-top > div:first-child > p,
@@ -870,6 +876,17 @@ body {
     visibility 0s linear 0.35s;
 }
 
+.header .brand-wordmark {
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.header.header-logo-only .brand-wordmark {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .nav a {
   color: #c3b9ae;
   transition: color 0.2s ease;
@@ -1103,6 +1120,10 @@ body {
 }
 
 @media (max-width: 767px) {
+  .menu-section.section-wrap {
+    width: calc(100% - 44px);
+  }
+
   .header {
     background: transparent;
   }
@@ -1115,6 +1136,12 @@ body {
 
   .nav.nav-open a {
     color: var(--ink);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .menu-section.section-wrap {
+    width: calc(100% - 70px);
   }
 }
 
