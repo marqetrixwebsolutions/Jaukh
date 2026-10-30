@@ -946,14 +946,8 @@ body {
 }
 
 .ingredients-section {
-  background:
-    radial-gradient(ellipse at 50% 42%, rgb(188 139 88 / 10%), transparent 52%),
-    linear-gradient(
-      180deg,
-      rgb(23 20 19 / 64%) 0%,
-      rgb(23 20 19 / 46%) 68%,
-      rgb(16 14 13 / 0%) 100%
-    );
+  background: transparent;
+  border: 0;
 }
 
 .ingredients-heading em,
@@ -978,8 +972,8 @@ body {
 }
 
 .plate-section {
-  background:
-    radial-gradient(ellipse at 50% 35%, rgb(73 51 41 / 24%) 0, transparent 62%);
+  background: transparent;
+  border: 0;
 }
 
 .dish-rim {
@@ -1119,5 +1113,134 @@ body {
 
   .nav.nav-open a {
     color: var(--ink);
+  }
+}
+
+.header .nav a {
+  position: relative;
+  padding: 10px 0;
+  transition:
+    color 220ms ease,
+    transform 220ms ease,
+    text-shadow 220ms ease;
+}
+
+.header .nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header .nav a:hover,
+.header .nav a:focus-visible {
+  color: #f0d19c;
+  text-shadow: 0 0 18px rgb(214 173 112 / 24%);
+  transform: translateY(-2px);
+}
+
+.header .nav a:hover::after,
+.header .nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.header .nav a:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.header > .button {
+  position: relative;
+  overflow: hidden;
+  gap: 14px;
+  padding: 10px 12px 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d6ad70, #b8814b);
+  color: #17110c;
+  box-shadow: 0 8px 24px rgb(188 139 88 / 16%);
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.header > .button::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgb(255 255 255 / 28%) 50%,
+    transparent 75%
+  );
+  content: "";
+  transform: translateX(-120%);
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.header > .button:hover {
+  background: linear-gradient(135deg, #e5bf7d, #c7955b);
+  color: #17110c;
+  box-shadow: 0 10px 30px rgb(214 173 112 / 30%);
+  transform: translateY(-2px);
+}
+
+.header > .button:hover::before {
+  transform: translateX(120%);
+}
+
+.header > .button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.header > .button svg {
+  box-sizing: content-box;
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d6ad70, #b8814b);
+  color: #17110c;
+  transition: transform 220ms ease;
+}
+
+.header > .button:hover svg {
+  background: linear-gradient(135deg, #e5bf7d, #c7955b);
+  color: #17110c;
+  transform: translate(2px, -2px);
+}
+
+.header .mobile-toggle {
+  border-radius: 50%;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.header .mobile-toggle:hover {
+  color: var(--gold);
+  background: rgb(214 173 112 / 10%);
+  transform: scale(1.06);
+}
+
+.header .mobile-toggle:active {
+  transform: scale(0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .nav a,
+  .header .nav a::after,
+  .header > .button,
+  .header > .button::before,
+  .header > .button svg,
+  .header .mobile-toggle {
+    transition-duration: 0.01ms;
   }
 }

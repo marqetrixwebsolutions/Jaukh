@@ -26,7 +26,8 @@ const storyGalleryItems = [
     text: "Chicken biryani with cashews",
   },
   {
-    image: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
+    image:
+      "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
     text: "Slow-cooked chicken curry",
   },
   {
@@ -34,7 +35,8 @@ const storyGalleryItems = [
     text: "Indo-Chinese stir-fry",
   },
   {
-    image: "/assests/Golden%20Cauliflower%20Curry%20in%20Black%20Bowl%281%29.png",
+    image:
+      "/assests/Golden%20Cauliflower%20Curry%20in%20Black%20Bowl%281%29.png",
     text: "Golden cauliflower curry",
   },
   {
@@ -169,8 +171,7 @@ export default function Home() {
       const cards = gsap.utils.toArray<HTMLElement>(".dish-card");
       if (cards.length < 2) return;
       const lastCard = cards[cards.length - 1];
-      const carouselEnd = () =>
-        `+=${window.innerHeight * (cards.length - 1)}`;
+      const carouselEnd = () => `+=${window.innerHeight * (cards.length - 1)}`;
 
       gsap.to(".dish-track", {
         x: () =>
@@ -235,13 +236,19 @@ export default function Home() {
       const headerLogo = root.current?.querySelector<HTMLElement>(
         ".header .brand-emblem",
       );
-      const heroSection =
-        root.current?.querySelector<HTMLElement>("#home");
+      const heroSection = root.current?.querySelector<HTMLElement>("#home");
       const travellingLogo =
         root.current?.querySelector<HTMLElement>(".travelling-logo");
-      const heroEmblem =
-        root.current?.querySelector<HTMLElement>(".hero-center-emblem");
-      if (heroLogo && headerLogo && heroSection && travellingLogo && heroEmblem) {
+      const heroEmblem = root.current?.querySelector<HTMLElement>(
+        ".hero-center-emblem",
+      );
+      if (
+        heroLogo &&
+        headerLogo &&
+        heroSection &&
+        travellingLogo &&
+        heroEmblem
+      ) {
         gsap.set(headerLogo, { autoAlpha: 0 });
         gsap.set(travellingLogo, { visibility: "visible" });
         const logoTransfer = gsap.timeline({
@@ -461,19 +468,19 @@ export default function Home() {
           })
           .fromTo(
             ".ingredient-top",
-            { y: 235, scale: 0.6, opacity: 0 },
+            { y: -235, scale: 0.6, opacity: 0 },
             { y: 0, scale: 1, opacity: 1 },
             0,
           )
           .fromTo(
             ".ingredient-middle",
-            { y: 160, scale: 0.7, opacity: 0 },
+            { y: -160, scale: 0.7, opacity: 0 },
             { y: 0, scale: 1, opacity: 1 },
             0,
           )
           .fromTo(
             ".ingredient-lower",
-            { y: 85, scale: 0.8, opacity: 0 },
+            { y: -85, scale: 0.8, opacity: 0 },
             { y: 0, scale: 1, opacity: 1 },
             0,
           )
@@ -492,7 +499,7 @@ export default function Home() {
         });
         gsap.fromTo(
           ".ingredient-top",
-          { y: 160, scale: 0.65, opacity: 0 },
+          { y: -160, scale: 0.65, opacity: 0 },
           {
             y: 0,
             scale: 1,
@@ -507,7 +514,7 @@ export default function Home() {
         );
         gsap.fromTo(
           ".ingredient-middle",
-          { y: 100, scale: 0.75, opacity: 0 },
+          { y: -100, scale: 0.75, opacity: 0 },
           {
             y: 0,
             scale: 1,
@@ -522,7 +529,7 @@ export default function Home() {
         );
         gsap.fromTo(
           ".ingredient-lower",
-          { y: 50, scale: 0.8, opacity: 0 },
+          { y: -50, scale: 0.8, opacity: 0 },
           {
             y: 0,
             scale: 1,
@@ -630,12 +637,16 @@ export default function Home() {
           className={mobile ? "nav nav-open" : "nav"}
         >
           {[
-            ["Home", "home"],
+            // ["Home", "home"],
             ["Our story", "story"],
             ["The menu", "menu"],
             ["The experience", "experience"],
           ].map(([label, id]) => (
-            <a key={id} href={`#${id}`} onClick={() => setMobile(false)}>
+            <a
+              key={id}
+              href={id === "menu" ? "/menu" : `#${id}`}
+              onClick={() => setMobile(false)}
+            >
               {label}
             </a>
           ))}
@@ -724,7 +735,7 @@ export default function Home() {
           ]}
         >
           {/* <div className="hero-actions hero-reveal">
-            <a className="button" href="#menu">
+            <a className="button" href="/menu">
               Explore our menu <ArrowUpRight size={16} />
             </a>
             <button className="text-link" onClick={reserve}>
@@ -822,7 +833,7 @@ export default function Home() {
         >
           <article className="showcase-row reveal">
             <div className="showcase-copy showcase-menu">
-              <div className="eyebrow">OUR MENU</div>
+              {/* <div className="eyebrow">OUR MENU</div> */}
               <h2>
                 Our Vision Is to Bring
                 <br />
@@ -833,7 +844,7 @@ export default function Home() {
                 outstanding food, genuine hospitality and an experience guests
                 want to share with others.
               </p>
-              <a href="#menu" className="showcase-link">
+              <a href="/menu" className="showcase-link">
                 BROWSE MENU <ArrowRight size={19} />
               </a>
             </div>
@@ -854,7 +865,7 @@ export default function Home() {
               />
             </div>
             <div className="showcase-copy showcase-place">
-              <div className="eyebrow">A PLACE TO BELONG</div>
+              {/* <div className="eyebrow">A PLACE TO BELONG</div> */}
               <h2>
                 Bringing People Together
                 <br />
@@ -885,7 +896,7 @@ export default function Home() {
             <div
               className="bowl-art"
               role="img"
-              aria-label="Exploded biryani bowl with fresh herbs, spiced chicken and saffron rice"
+              aria-label="Layered biryani bowl with fresh herbs, spiced chicken and saffron rice"
             >
               <div className="ingredient-slice ingredient-top" />
               <div className="ingredient-slice ingredient-middle" />
@@ -922,7 +933,7 @@ export default function Home() {
           </div>
           <div className="ingredients-foot">
             <span>HONEST INGREDIENTS. EXTRAORDINARY FLAVOUR.</span>
-            <span>KEEP SCROLLING ↓</span>
+            {/* <span>KEEP SCROLLING ↓</span> */}
           </div>
         </section>
         {/* <section className="highlights section-wrap" id="experience">
@@ -971,7 +982,7 @@ export default function Home() {
             className="highlight-actions reveal"
             aria-label="Highlights actions"
           >
-            <a className="button" href="#menu">
+            <a className="button" href="/menu">
               View Our Menu <ArrowUpRight size={16} />
             </a>
             <button className="button button-outline" onClick={reserve}>
@@ -1017,7 +1028,7 @@ export default function Home() {
               <br />
               Always unmistakably JOUKH.
             </p>
-            <a href="#menu" className="text-link">
+            <a href="/menu" className="text-link">
               Find your favourite <ArrowRight size={18} />
             </a>
           </div>
@@ -1125,9 +1136,9 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <span>COME ON IN</span>
-            <a href="#home">Home</a>
+            {/* <a href="#home">Home</a> */}
             <a href="#story">Our story</a>
-            <a href="#menu">Our menu</a>
+            <a href="/menu">Our menu</a>
           </div>
           <div className="footer-links">
             <span>STAY A LITTLE</span>

@@ -433,6 +433,20 @@ p {
   transform: translateX(-50%);
   top: -20px;
 }
+.assembled-biryani {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(88%, 430px);
+  max-height: 90%;
+  object-fit: contain;
+  translate: -50% -50%;
+  opacity: 0;
+  visibility: hidden;
+  filter: drop-shadow(0 26px 34px rgb(0 0 0 / 38%));
+  will-change: opacity, transform;
+}
 .ingredient-slice {
   position: absolute;
   inset: 0;
@@ -440,16 +454,16 @@ p {
   will-change: transform;
 }
 .ingredient-top {
-  clip-path: inset(0 0 76% 0);
+  clip-path: inset(0 0 77% 0);
 }
 .ingredient-middle {
-  clip-path: inset(24% 0 52% 0);
+  clip-path: inset(21% 0 51% 0);
 }
 .ingredient-lower {
-  clip-path: inset(48% 0 37% 0);
+  clip-path: inset(47% 0 32% 0);
 }
 .ingredient-bowl {
-  clip-path: inset(63% 0 0 0);
+  clip-path: inset(66% 0 0 0);
 }
 .ingredient-label {
   position: absolute;
