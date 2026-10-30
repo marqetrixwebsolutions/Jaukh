@@ -72,6 +72,15 @@ body {
   height: auto;
   min-height: calc(100svh - 90px);
   padding: 100px 24px 110px;
+  background:
+    radial-gradient(
+      ellipse 46% 52% at 50% 49%,
+      rgb(116 68 42 / 25%) 0%,
+      rgb(75 47 33 / 16%) 38%,
+      rgb(35 25 20 / 7%) 66%,
+      transparent 100%
+    ),
+    linear-gradient(180deg, #100e0d 0%, #15110f 52%, #100e0d 100%);
 }
 .editorial-hero .floating-hero-content {
   max-width: 820px;

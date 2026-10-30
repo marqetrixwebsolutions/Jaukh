@@ -280,17 +280,17 @@ export default function Home() {
           .to(travellingLogo, { autoAlpha: 0, duration: 0.08 }, 0.92);
 
         gsap.to(".floating-image-position", {
-          x: (_index: number, element: HTMLElement) =>
+          xPercent: (_index: number, element: HTMLElement) =>
             element.dataset.entrance === "left"
-              ? -window.innerWidth
+              ? -155
               : element.dataset.entrance === "right"
-                ? window.innerWidth
+                ? 155
                 : 0,
-          y: (_index: number, element: HTMLElement) =>
+          yPercent: (_index: number, element: HTMLElement) =>
             element.dataset.entrance === "top"
-              ? -window.innerHeight
+              ? -155
               : element.dataset.entrance === "bottom"
-                ? window.innerHeight
+                ? 155
                 : 0,
           scale: 0.55,
           autoAlpha: 0,
