@@ -7,6 +7,7 @@ import { SplitText } from "gsap/SplitText";
 import Lenis from "lenis";
 import { FloatingFoodHero } from "@/components/ui/hero-section-7";
 import { CircularGallery } from "@/components/ui/circular-gallery-2";
+import { Hero as SiteBackground } from "@/components/ui/tailwind-css-background-snippet";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -593,7 +594,8 @@ export default function Home() {
   };
 
   return (
-    <div ref={root}>
+    <div ref={root} className="site-shell">
+      <SiteBackground />
       <img
         className="travelling-logo"
         src="/assests/Deep%20Purple%20Chef%20Emblem.png"

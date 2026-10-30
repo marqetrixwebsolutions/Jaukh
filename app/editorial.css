@@ -80,8 +80,7 @@ body {
       rgb(75 47 33 / 16%) 38%,
       rgb(35 25 20 / 7%) 66%,
       transparent 100%
-    ),
-    linear-gradient(180deg, #100e0d 0%, #15110f 52%, #100e0d 100%);
+    );
 }
 .editorial-hero .floating-hero-content {
   max-width: 820px;
@@ -850,9 +849,10 @@ body {
 }
 
 .header {
-  background: rgb(16 14 13 / 96%);
+  background: transparent;
   border: 0;
   box-shadow: none;
+  backdrop-filter: none;
   transform: translateY(0);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -929,12 +929,12 @@ body {
 .showcase-menu {
   background:
     radial-gradient(ellipse at 100% 0, rgb(188 139 88 / 14%), transparent 58%),
-    #1b1716;
+    rgb(27 23 22 / 78%);
   color: var(--ink);
 }
 
 .showcase-place {
-  background: #171413;
+  background: rgb(23 20 19 / 78%);
   color: var(--ink);
 }
 
@@ -948,7 +948,7 @@ body {
 .ingredients-section {
   background:
     radial-gradient(ellipse at 50% 45%, rgb(188 139 88 / 9%), transparent 48%),
-    #171413;
+    rgb(23 20 19 / 58%);
   border-top: 1px solid rgb(229 191 125 / 10%);
   border-bottom: 1px solid rgb(229 191 125 / 10%);
 }
@@ -976,8 +976,7 @@ body {
 
 .plate-section {
   background:
-    radial-gradient(ellipse at 50% 42%, #49332955 0, transparent 55%),
-    #100e0d;
+    radial-gradient(ellipse at 50% 42%, rgb(73 51 41 / 34%) 0, transparent 55%);
 }
 
 .dish-rim {
@@ -1002,7 +1001,7 @@ body {
 .menu-card:nth-child(2),
 .menu-card:nth-child(3),
 .menu-card:nth-child(4) {
-  background: #191614;
+  background: rgb(25 22 20 / 78%);
   color: var(--ink);
   border: 1px solid rgb(229 191 125 / 13%);
   transition:
@@ -1036,7 +1035,7 @@ body {
 .footer {
   background:
     radial-gradient(ellipse at 20% 0, rgb(188 139 88 / 8%), transparent 40%),
-    #0b0a09;
+    rgb(11 10 9 / 84%);
   border-top: 1px solid rgb(229 191 125 / 12%);
 }
 
@@ -1106,7 +1105,7 @@ body {
 
 @media (max-width: 767px) {
   .header {
-    background: rgb(16 14 13 / 94%);
+    background: transparent;
   }
 
   .nav.nav-open {
