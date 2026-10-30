@@ -21,13 +21,34 @@ import {
 } from "lucide-react";
 
 const storyGalleryItems = [
-  { image: "/images/interior.jpg", text: "A place to belong" },
-  { image: "/images/curry.jpg", text: "Freshly prepared Indian curry" },
-  { image: "/images/tandoor.jpg", text: "From the tandoor" },
-  { image: "/images/biryani.jpg", text: "Fragrant chicken biryani" },
-  { image: "/images/hero.jpg", text: "A meal made for sharing" },
-  { image: "/images/interior.jpg", text: "Friends and family, together" },
-  { image: "/images/curry.jpg", text: "Made fresh, served with pride" },
+  {
+    image: "/assests/Vibrant%20Chicken%20Biryani%20Bowl%20with%20Cashews.png",
+    text: "Chicken biryani with cashews",
+  },
+  {
+    image: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
+    text: "Slow-cooked chicken curry",
+  },
+  {
+    image: "/assests/Glossy%20Red%20Indo-Chinese%20Stir-Fry%20Bowl.png",
+    text: "Indo-Chinese stir-fry",
+  },
+  {
+    image: "/assests/Golden%20Cauliflower%20Curry%20in%20Black%20Bowl%281%29.png",
+    text: "Golden cauliflower curry",
+  },
+  {
+    image: "/assests/Grilled%20Chicken%20Cabbage%20Salad%20Bowl.png",
+    text: "Grilled chicken and fresh cabbage",
+  },
+  {
+    image: "/assests/Grilled%20Kebabs%20with%20Citrus%20Cabbage%20Salad.png",
+    text: "Grilled kebabs with citrus salad",
+  },
+  {
+    image: "/assests/Textured%20Black%20Bowl%20of%20Colorful%20Biryani.png",
+    text: "Colourful chicken biryani",
+  },
   {
     image: "/assests/Glossy%20Spicy%20Chili%20Stir-Fry%20Bowl%281%29.png",
     text: "Spicy chili stir-fry with peppers and spring onions",
@@ -62,16 +83,31 @@ const categories = [
 ];
 
 const plateImages = [
-  // {
-  //   src: "/assests/Textured%20Black%20Bowl%20of%20Colorful%20Biryani.png",
-  //   name: "Colorful Chicken Biryani",
-  //   alt: "Colorful chicken biryani in a textured black bowl",
-  // },
-  // {
-  //   src: "/assests/Vibrant%20Chicken%20Biryani%20Bowl%20with%20Cashews.png",
-  //   name: "Chicken Biryani with Cashews",
-  //   alt: "Chicken biryani topped with cashews",
-  // },
+  {
+    src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%281%29.png",
+    name: "Garnished Chicken Curry",
+    alt: "Garnished chicken curry served in a black bowl",
+  },
+  {
+    src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%282%29.png",
+    name: "Chicken Curry with Ginger",
+    alt: "Chicken curry topped with fresh ginger",
+  },
+  {
+    src: "/assests/Glossy%20Red%20Indo-Chinese%20Stir-Fry%20Bowl.png",
+    name: "Indo-Chinese Stir-Fry",
+    alt: "Glossy red Indo-Chinese stir-fry with peppers",
+  },
+  {
+    src: "/assests/Golden%20Cauliflower%20Curry%20in%20Black%20Bowl%281%29.png",
+    name: "Golden Cauliflower Curry",
+    alt: "Golden cauliflower curry in a black bowl",
+  },
+  {
+    src: "/assests/Grilled%20Chicken%20Cabbage%20Salad%20Bowl.png",
+    name: "Grilled Chicken Salad",
+    alt: "Grilled chicken and fresh cabbage salad",
+  },
   {
     src: "/assests/Grilled%20Kebabs%20with%20Citrus%20Cabbage%20Salad.png",
     name: "Grilled Kebabs",
@@ -80,7 +116,7 @@ const plateImages = [
   {
     src: "/assests/Glossy%20Spicy%20Chili%20Stir-Fry%20Bowl%281%29.png",
     name: "Spicy Chili Stir-Fry",
-    alt: "Spicy chili chicken stir-fry with peppers and spring onions in a black bowl",
+    alt: "Spicy chili stir-fry with peppers and spring onions in a black bowl",
   },
 ];
 
@@ -106,6 +142,7 @@ export default function Home() {
   const video = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const [mobile, setMobile] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [activeDish, setActiveDish] = useState(0);
@@ -132,6 +169,8 @@ export default function Home() {
       const cards = gsap.utils.toArray<HTMLElement>(".dish-card");
       if (cards.length < 2) return;
       const lastCard = cards[cards.length - 1];
+      const carouselEnd = () =>
+        `+=${window.innerHeight * (cards.length - 1)}`;
 
       gsap.to(".dish-track", {
         x: () =>
@@ -141,7 +180,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: ".plate-section",
           start: "top top",
-          end: () => `+=${window.innerHeight * (cards.length - 1)}`,
+          end: carouselEnd,
           pin: true,
           scrub: 1,
           invalidateOnRefresh: true,
@@ -157,6 +196,17 @@ export default function Home() {
                   )
                 : 0,
             ),
+        },
+      });
+      gsap.to(cards, {
+        rotation: 360,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".plate-section",
+          start: "top top",
+          end: carouselEnd,
+          scrub: 1,
+          invalidateOnRefresh: true,
         },
       });
     };
@@ -184,9 +234,7 @@ export default function Home() {
         ".header .brand-emblem",
       );
       if (heroLogo && headerLogo) {
-        gsap.set([".hero-center-emblem", ".header .brand-emblem"], {
-          autoAlpha: 0,
-        });
+        gsap.set(".hero-center-emblem", { autoAlpha: 0 });
         gsap.set(".travelling-logo", { visibility: "visible" });
         gsap.fromTo(
           ".travelling-logo",
@@ -463,6 +511,33 @@ export default function Home() {
     if (reservation || selected !== null) dialog.current?.showModal();
     else dialog.current?.close();
   }, [reservation, selected]);
+  useEffect(() => {
+    let previousY = window.scrollY;
+    let idleTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const direction = currentY - previousY;
+      previousY = currentY;
+
+      if (idleTimer) clearTimeout(idleTimer);
+      if (currentY <= 12) {
+        setHeaderVisible(true);
+        return;
+      }
+
+      if (direction > 2) setHeaderVisible(false);
+      else if (direction < -2) setHeaderVisible(true);
+
+      idleTimer = setTimeout(() => setHeaderVisible(false), 1800);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (idleTimer) clearTimeout(idleTimer);
+    };
+  }, []);
   const close = () => {
     setReservation(false);
     setSelected(null);
@@ -503,7 +578,7 @@ export default function Home() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <header className="header">
+      <header className={`header${headerVisible ? "" : " header-hidden"}`}>
         <Brand />
         <nav
           aria-label="Main navigation"

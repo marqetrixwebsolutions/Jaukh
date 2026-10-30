@@ -122,15 +122,19 @@ export function CircularGallery({
               return length(max(d, vec2(0.0))) + min(max(d.x, d.y), 0.0) - r;
             }
             void main() {
-              vec2 ratio = vec2(
-                min((uPlaneSizes.x / uPlaneSizes.y) / (uImageSizes.x / uImageSizes.y), 1.0),
-                min((uPlaneSizes.y / uPlaneSizes.x) / (uImageSizes.y / uImageSizes.x), 1.0)
-              );
-              vec2 uv = vUv * ratio + (1.0 - ratio) * 0.5;
+              float planeAspect = uPlaneSizes.x / uPlaneSizes.y;
+              float imageAspect = uImageSizes.x / uImageSizes.y;
+              vec2 imageScale = imageAspect > planeAspect
+                ? vec2(1.0, planeAspect / imageAspect)
+                : vec2(imageAspect / planeAspect, 1.0);
+              vec2 imageOffset = (1.0 - imageScale) * 0.5;
+              vec2 uv = (vUv - imageOffset) / imageScale;
               vec4 color = texture2D(tMap, uv);
               float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
               float alpha = 1.0 - smoothstep(-0.002, 0.002, d);
-              gl_FragColor = vec4(color.rgb, color.a * alpha * uOpacity);
+              float insideImage = step(imageOffset.x, vUv.x) * step(vUv.x, imageOffset.x + imageScale.x)
+                * step(imageOffset.y, vUv.y) * step(vUv.y, imageOffset.y + imageScale.y);
+              gl_FragColor = vec4(color.rgb, color.a * alpha * insideImage * uOpacity);
             }`,
           uniforms,
         });
