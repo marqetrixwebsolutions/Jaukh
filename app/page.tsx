@@ -147,7 +147,6 @@ export default function Home() {
   const video = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const [mobile, setMobile] = useState(false);
-  const [headerVisible, setHeaderVisible] = useState(true);
   const [headerLogoOnly, setHeaderLogoOnly] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
@@ -590,36 +589,28 @@ export default function Home() {
   }, [reservation, selected]);
   useEffect(() => {
     let previousY = window.scrollY;
-    let idleTimer: ReturnType<typeof setTimeout> | undefined;
 
     const handleScroll = () => {
       const currentY = window.scrollY;
       const direction = currentY - previousY;
       previousY = currentY;
 
-      if (idleTimer) clearTimeout(idleTimer);
       const logoTransferEnd = logoTransferDistance();
       if (currentY <= logoTransferEnd + 12) {
-        setHeaderVisible(true);
         setHeaderLogoOnly(false);
         return;
       }
 
       if (direction > 2) {
-        setHeaderVisible(false);
         setHeaderLogoOnly(true);
       } else if (direction < -2) {
-        setHeaderVisible(true);
         setHeaderLogoOnly(false);
       }
-
-      idleTimer = setTimeout(() => setHeaderVisible(false), 1800);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (idleTimer) clearTimeout(idleTimer);
     };
   }, []);
   const close = () => {
@@ -662,9 +653,7 @@ export default function Home() {
       {/* <a className="skip-link" href="#main">
         Skip to content
       </a> */}
-      <header
-        className={`header${headerVisible ? "" : " header-hidden"}${headerLogoOnly ? " header-logo-only" : ""}`}
-      >
+      <header className={`header${headerLogoOnly ? " header-logo-only" : ""}`}>
         <Brand />
         <nav
           aria-label="Main navigation"
