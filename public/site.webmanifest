@@ -1,0 +1,22 @@
+{
+  "name": "JOUKH Indian Restaurant",
+  "short_name": "JOUKH",
+  "description": "Rooted in tradition. Made for today. Discover Indian hospitality and authentic flavour at JOUKH.",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#100e0d",
+  "background_color": "#100e0d",
+  "display": "standalone"
+}
