@@ -129,7 +129,7 @@ function Brand() {
     <a href="#home" className="brand" aria-label="Joukh home">
       <img
         className="brand-emblem"
-        src="/assests/Deep%20Purple%20Chef%20Emblem.png"
+        src="/assests/joukh%20white%20logo.png"
         alt=""
         width={48}
         height={48}
@@ -277,12 +277,12 @@ export default function Home() {
           .fromTo(
             travellingLogo,
             {
-              left: () => heroLogo.getBoundingClientRect().left,
+              left: () => heroEmblem.getBoundingClientRect().left,
               top: () =>
-                heroLogo.getBoundingClientRect().top -
+                heroEmblem.getBoundingClientRect().top -
                 heroSection.getBoundingClientRect().top,
-              width: () => heroLogo.offsetWidth,
-              height: () => heroLogo.offsetHeight,
+              width: () => heroEmblem.getBoundingClientRect().width,
+              height: () => heroEmblem.getBoundingClientRect().height,
               autoAlpha: 0,
             },
             {
@@ -636,7 +636,7 @@ export default function Home() {
       <div className="site-gradient-background" aria-hidden="true" />
       <img
         className="travelling-logo"
-        src="/assests/Deep%20Purple%20Chef%20Emblem.png"
+        src="/assests/joukh%20white%20logo.png"
         alt=""
         aria-hidden="true"
         width={176}
@@ -646,7 +646,7 @@ export default function Home() {
         <div className="loader-brand">
           <div className="loader-emblem">
             <img
-              src="/assests/Deep%20Purple%20Chef%20Emblem.png"
+              src="/assests/joukh%20white%20logo.png"
               alt=""
               width={84}
               height={84}
@@ -714,7 +714,7 @@ export default function Home() {
               <span className="hero-restaurant">INDIAN RESTAURANT</span>
             </>
           }
-          logoSrc="/assests/Deep%20Purple%20Chef%20Emblem.png"
+          logoSrc="/assests/joukh%20white%20logo.png"
           description={
             "Good food, warm hospitality, and a place worth coming back to.\nServing our guests since November 2023."
           }
@@ -1179,7 +1179,7 @@ export default function Home() {
           <div className="footer-links">
             <span>COME ON IN</span>
             {/* <a href="#home">Home</a> */}
-            <a href="#story">Our story</a>
+            <a href="/">Our story</a>
             <a href="/menu">Our menu</a>
             <a href="/contact">Contact</a>
           </div>

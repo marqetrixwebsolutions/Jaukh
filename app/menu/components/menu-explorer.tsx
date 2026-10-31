@@ -39,7 +39,7 @@ export function MenuExplorer() {
       <header className={styles.header}>
         <Link className={styles.brand} href="/" aria-label="Joukh home">
           <img
-            src="/assests/Deep%20Purple%20Chef%20Emblem.png"
+            src="/assests/joukh%20white%20logo.png"
             alt=""
             width={42}
             height={42}

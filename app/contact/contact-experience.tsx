@@ -64,7 +64,7 @@ export function ContactExperience() {
       >
         <Link className={styles.brand} href="/" aria-label="Joukh home">
           <img
-            src="/assests/Deep%20Purple%20Chef%20Emblem.png"
+            src="/assests/joukh%20white%20logo.png"
             alt=""
             width={48}
             height={48}
@@ -77,11 +77,14 @@ export function ContactExperience() {
           className={`${styles.navigation}${mobileNavOpen ? ` ${styles.navigationOpen}` : ""}`}
           aria-label="Main navigation"
         >
-          <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
+          <Link href="/" onClick={() => setMobileNavOpen(false)}>
             Our story
           </Link>
           <Link href="/menu" onClick={() => setMobileNavOpen(false)}>
             The menu
+          </Link>
+          <Link href="/" onClick={() => setMobileNavOpen(false)}>
+            The Experience
           </Link>
           <Link href="/contact" aria-current="page" onClick={() => setMobileNavOpen(false)}>
             Contact
