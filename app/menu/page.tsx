@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import { MenuExplorer } from "./components/menu-explorer";
 
-export const metadata: Metadata = {
-  title: "Menu",
-  description:
-    "Follow your appetite. Explore Joukh’s curries, biryanis, grills and fresh bowls in an interactive menu.",
-};
+export const metadata = createPageMetadata(
+  "Menu",
+  "Follow your appetite. Explore JOUKH’s curries, biryanis, grills and fresh bowls in an interactive menu.",
+  "/menu",
+);
 
 export default function MenuPage() {
   return <MenuExplorer />;
