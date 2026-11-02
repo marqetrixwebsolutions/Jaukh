@@ -271,24 +271,65 @@
   margin-top: 23px;
 }
 .reserveButton {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 45px;
+  gap: 14px;
   margin-top: 32px;
-  padding: 18px 25px;
-  color: #21170f;
-  background: var(--gold);
+  padding: 10px 12px 10px 18px;
+  border: 0;
+  color: #17110c;
+  background: linear-gradient(135deg, #d6ad70, #b8814b);
   border-radius: 999px;
-  font-size: 11px;
+  box-shadow: 0 8px 24px rgb(188 139 88 / 16%);
+  font-size: 13px;
   font-weight: 700;
   transition:
     background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
     transform 0.2s;
 }
+.reserveButton::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgb(255 255 255 / 28%) 50%,
+    transparent 75%
+  );
+  content: "";
+  transform: translateX(-120%);
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
 .reserveButton:hover {
-  background: #f0d7ab;
+  background: linear-gradient(135deg, #e5bf7d, #c7955b);
+  box-shadow: 0 10px 30px rgb(214 173 112 / 30%);
   transform: translateY(-2px);
+}
+.reserveButton:hover::before {
+  transform: translateX(120%);
+}
+.reserveButton:active {
+  transform: translateY(0) scale(0.98);
+}
+.reserveButton > svg {
+  box-sizing: content-box;
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d6ad70, #b8814b);
+  color: #17110c;
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+.reserveButton:hover > svg {
+  background: linear-gradient(135deg, #e5bf7d, #c7955b);
+  transform: translate(2px, -2px);
 }
 .ctaDetail {
   font-size: 8px;
@@ -385,7 +426,7 @@
     font-size: 12px;
   }
   .reserveButton {
-    gap: 28px;
+    gap: 14px;
     margin-top: 27px;
   }
   .ctaDetail {
@@ -400,7 +441,9 @@
     transform: none !important;
   }
   .buttons button,
-  .reserveButton {
+  .reserveButton,
+  .reserveButton::before,
+  .reserveButton > svg {
     transition: none;
   }
 }

@@ -24,8 +24,8 @@ import {
 
 const storyGalleryItems = [
   {
-    image: "/assests/Vibrant%20Chicken%20Biryani%20Bowl%20with%20Cashews.png",
-    text: "Chicken biryani with cashews",
+    image: "/assests/Glazed%20Crispy%20Chicken%20Bowl.png",
+    text: "Glazed crispy chicken bowl",
   },
   {
     image:
@@ -48,10 +48,6 @@ const storyGalleryItems = [
   {
     image: "/assests/Grilled%20Kebabs%20with%20Citrus%20Cabbage%20Salad.png",
     text: "Grilled kebabs with citrus salad",
-  },
-  {
-    image: "/assests/Textured%20Black%20Bowl%20of%20Colorful%20Biryani.png",
-    text: "Colourful chicken biryani",
   },
   {
     image: "/assests/Glossy%20Spicy%20Chili%20Stir-Fry%20Bowl%281%29.png",
@@ -81,7 +77,7 @@ const categories = [
   {
     name: "Small plates",
     note: "A delicious beginning",
-    image: "tandoor",
+    image: "small-plates",
     dishes: ["Vegetable samosas", "Onion bhaji", "Aloo tikki"],
   },
 ];
@@ -93,7 +89,7 @@ const plateImages = [
   //   alt: "Garnished chicken curry served in a black bowl",
   // },
   {
-    src: "/assests/Garnished%20Chicken%20Curry%20in%20Black%20Bowl%282%29.png",
+    src: "/assests/Garnished Chicken Curry in Black Bowl(1).png",
     name: "Chicken Curry with Ginger",
     alt: "Chicken curry topped with fresh ginger",
   },
@@ -709,8 +705,8 @@ export default function Home() {
           }
           images={[
             {
-              src: "/assests/Vibrant%20Chicken%20Biryani%20Bowl%20with%20Cashews.png",
-              alt: "Chicken biryani in a black bowl with cashews",
+              src: "/assests/Glazed%20Crispy%20Chicken%20Bowl.png",
+              alt: "Glazed crispy chicken with peppers and vegetables",
               className: "hero-dish hero-dish-curry",
               entrance: "left",
             },
@@ -721,16 +717,28 @@ export default function Home() {
               entrance: "right",
             },
             {
-              src: "/assests/Textured%20Black%20Bowl%20of%20Colorful%20Biryani.png",
-              alt: "Colourful chicken biryani in a textured black bowl",
+              src: "/assests/Glazed%20Shrimp%20Biryani%20Bowl.png",
+              alt: "Glazed shrimp biryani in a black bowl",
               className: "hero-dish hero-dish-biryani",
               entrance: "bottom",
             },
             {
-              src: "/images/hero-leaf.png",
-              alt: "Fresh basil",
+              src: "/images/hero-spices.svg",
+              alt: "Aromatic whole spices",
               className: "hero-garnish hero-leaf",
               entrance: "top",
+            },
+            {
+              src: "/images/hero-red-chilies.svg",
+              alt: "Dried red chili peppers",
+              className: "hero-garnish hero-spice-accent-one",
+              entrance: "left",
+            },
+            {
+              src: "/images/hero-red-chilies.svg",
+              alt: "Dried red chili peppers",
+              className: "hero-garnish hero-spice-accent-two",
+              entrance: "right",
             },
             {
               src: "/assests/Glossy%20Red%20Indo-Chinese%20Stir-Fry%20Bowl.png",
@@ -751,8 +759,8 @@ export default function Home() {
               entrance: "left",
             },
             {
-              src: "/assests/Black%20Bowl%20Shrimp%20Fried%20Rice%281%29.png",
-              alt: "Shrimp fried rice served in a black bowl",
+              src: "/assests/Vibrant%20Red%20Shrimp%20Citrus%20Salad%20Bowl.png",
+              alt: "Red shrimp with citrus and fresh salad vegetables",
               className: "hero-dish hero-dish-extra-right",
               entrance: "right",
             },
@@ -880,7 +888,7 @@ export default function Home() {
             </div>
             <div className="showcase-photo">
               <img
-                src="/images/curry.jpg"
+                src="/assests/indian_flavours.jpg"
                 alt="Creamy Indian curry finished with herbs and a swirl of cream"
                 loading="lazy"
               />
@@ -889,7 +897,7 @@ export default function Home() {
           <article className="showcase-row showcase-row-reverse reveal">
             <div className="showcase-photo">
               <img
-                src="/images/interior.jpg"
+                src="/images/objectives/community.jpg"
                 alt="An inviting restaurant dining room for shared meals and celebrations"
                 loading="lazy"
               />
@@ -1177,7 +1185,7 @@ export default function Home() {
             <a href="#experience">The experience</a>
             <a href="#objectives">Our objectives</a>
             <button onClick={reserve}>
-              Reservations <ArrowUpRight size={13} />
+              Reservations
             </button>
           </div>
           <div className="footer-note">

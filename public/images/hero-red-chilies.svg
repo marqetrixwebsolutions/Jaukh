@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="150" viewBox="0 0 240 150" fill="none">
+  <defs>
+    <linearGradient id="pepper" x1="52" y1="31" x2="199" y2="122" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5C37"/>
+      <stop offset=".2" stop-color="#D92517"/>
+      <stop offset=".58" stop-color="#9E130F"/>
+      <stop offset=".82" stop-color="#D6321B"/>
+      <stop offset="1" stop-color="#63100D"/>
+    </linearGradient>
+    <linearGradient id="pepperTwo" x1="29" y1="68" x2="194" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F34A2B"/>
+      <stop offset=".32" stop-color="#B31812"/>
+      <stop offset=".7" stop-color="#E6321D"/>
+      <stop offset="1" stop-color="#74120E"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#89934C"/>
+      <stop offset=".5" stop-color="#59632F"/>
+      <stop offset="1" stop-color="#343F24"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="6" y="12" width="226" height="130" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="8"/>
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .11 0"/>
+    </filter>
+  </defs>
+  <ellipse cx="123" cy="111" rx="91" ry="17" fill="#100805" opacity=".3" filter="url(#soft-shadow)"/>
+  <g transform="rotate(-20 120 76)">
+    <path d="M37 69c34-32 89-47 145-38 17 3 28 8 39 15-18 25-54 50-100 61-39 9-71 4-84-9-8-8-8-19 0-29Z" fill="url(#pepper)" stroke="#64100D" stroke-width="2"/>
+    <path d="M40 69c39-28 91-41 142-34 12 2 22 5 31 10-29-7-68 1-98 13-27 11-51 26-72 38-9-7-11-17-3-27Z" fill="#FF7250" opacity=".24"/>
+    <path d="M51 69c38-24 86-36 128-31" stroke="#FFB08B" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+    <path d="M190 48c12-4 23-5 34-2-5 7-11 13-19 18" fill="url(#stem)" stroke="#374122" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M207 60c8 2 14 0 20-5" stroke="#A3A46A" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+  </g>
+  <g transform="rotate(13 108 88)">
+    <path d="M19 93c38-25 91-34 143-24 18 3 31 9 42 17-21 22-57 39-101 45-36 5-65-1-77-14-7-8-10-16-7-24Z" fill="url(#pepperTwo)" stroke="#64100D" stroke-width="2"/>
+    <path d="M25 92c38-20 83-27 127-20 13 2 25 6 35 11-31-5-69 1-99 11-24 8-46 18-67 29-8-8-7-21 4-31Z" fill="#FF7655" opacity=".23"/>
+    <path d="M39 91c37-17 76-23 111-18" stroke="#FFB08B" stroke-width="3.5" stroke-linecap="round" opacity=".48"/>
+    <path d="M184 84c12-5 23-5 34-2-6 7-12 12-20 16" fill="url(#stem)" stroke="#374122" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M199 97c7 1 13-1 19-6" stroke="#A3A46A" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+  </g>
+  <path d="M65 56c2 2 3 4 3 7m18-15c2 2 3 4 3 7m18-11 2 6m14-8 1 5m-72 61 2 4m30-2 2 5m25-8 2 4m36-11 2 4" stroke="#5C100C" stroke-width="2" stroke-linecap="round" opacity=".48"/>
+  <rect width="240" height="150" filter="url(#grain)" opacity=".22"/>
+</svg>

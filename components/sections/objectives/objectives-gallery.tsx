@@ -253,7 +253,7 @@ export function ObjectivesSection({ onReserve }: { onReserve: () => void }) {
           className={styles.reserveButton}
           onClick={onReserve}
         >
-          Reserve your table <ArrowUpRight size={18} />
+          RESERVE A TABLE <ArrowUpRight size={15} />
         </button>
         <p className={styles.ctaDetail}>
           

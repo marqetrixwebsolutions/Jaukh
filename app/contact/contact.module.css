@@ -230,7 +230,7 @@
 
 .contactSection,
 .mapSection {
-  width: min(1120px, calc(100% - 64px));
+  width: min(1300px, calc(100% - 48px));
   margin: 0 auto;
 }
 
@@ -537,7 +537,7 @@ a.detailItem:hover p {
 .footerBrandBlock > p {
   margin-top: 20px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .footerBrand {
@@ -580,7 +580,7 @@ a.detailItem:hover p {
 .footerLinks > span {
   margin-bottom: 10px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1.5px;
 }
 

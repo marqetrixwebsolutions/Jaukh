@@ -16,8 +16,8 @@ import styles from "./contact.module.css";
 
 const restaurantAddress =
   "Al Cheikh Hasan Ibn Hussein Ibn Ali, Al Hamra, Riyadh 13217, Saudi Arabia";
-const restaurantMapUrl = "https://maps.app.goo.gl/oxQ27pU3Pm77HmqG9";
-const mapSearch = encodeURIComponent(restaurantAddress);
+const restaurantMapUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4334.333179364254!2d46.76672719999999!3d24.7898683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2effa9f50cd1c1%3A0xf66ca5db3a16a6e7!2sJoukh%20Indian%20Restaurant!5e1!3m2!1sen!2sin!4v1793617836770!5m2!1sen!2sin";
 
 export function ContactExperience() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -242,19 +242,12 @@ export function ContactExperience() {
         <div className={styles.mapFrame}>
           <iframe
             title="Map preview for JOUKH in Al Hamra, Riyadh"
-            src={`https://maps.google.com/maps?q=${mapSearch}&output=embed`}
+            src={restaurantMapUrl}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
           
-          <a
-            className={styles.mapLink}
-            href={restaurantMapUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            OPEN IN MAPS <ArrowUpRight size={15} />
-          </a>
+         
         </div>
       </section>
 
@@ -284,9 +277,7 @@ export function ContactExperience() {
             <span>STAY A LITTLE</span>
             <Link href="/#experience">The experience</Link>
             <Link href="/#objectives">Our objectives</Link>
-            <Link href="/contact#contact-form">
-              Reservations <ArrowUpRight size={13} />
-            </Link>
+            <Link href="/contact#contact-form">Reservations</Link>
           </div>
           <div className={styles.footerNote}>
             <UtensilsCrossed size={25} aria-hidden="true" />

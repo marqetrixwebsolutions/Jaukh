@@ -3,7 +3,7 @@ export const objectives = [
     title: "Deliver consistent quality",
     description:
       "Maintain the same high standard of taste, freshness and presentation in every dish, every day.",
-    image: "/images/curry.jpg",
+    image: "/images/objectives/quality.jpg",
     alt: "Freshly prepared Indian curry finished with herbs and cream",
     position: "50% 55%",
     theme: "THE FOOD",
@@ -12,7 +12,7 @@ export const objectives = [
     title: "Put guests first",
     description:
       "Provide fast, friendly and respectful service, and listen closely to guest feedback.",
-    image: "/images/objectives/service.jpg",
+    image: "/images/objectives/guest.jpg",
     alt: "A server carrying freshly prepared dishes through a warmly lit restaurant",
     position: "40% 50%",
     theme: "THE WELCOME",
@@ -21,7 +21,7 @@ export const objectives = [
     title: "Uphold cleanliness and food safety",
     description:
       "Follow strict hygiene standards in our kitchen and dining areas.",
-    image: "/images/objectives/kitchen.jpg",
+    image: "/images/objectives/cleanliness.jpg",
     alt: "A chef working at an organised stainless-steel restaurant cooking station",
     position: "45% 50%",
     theme: "THE CARE",
@@ -30,7 +30,7 @@ export const objectives = [
     title: "Innovate with care",
     description:
       "Refresh our menu with new ideas and seasonal offers while keeping the favorites our guests love.",
-    image: "/images/biryani.jpg",
+    image: "/images/objectives/innovte.jpg",
     alt: "An inviting bowl of golden biryani with chicken and fresh herbs",
     position: "50% 55%",
     theme: "THE CURIOSITY",
@@ -39,7 +39,7 @@ export const objectives = [
     title: "Grow with our community",
     description:
       "Build lasting relationships through social media, special occasions and local engagement.",
-    image: "/images/objectives/shared-table.jpg",
+    image: "/images/objectives/community.jpg",
     alt: "People sharing dishes and conversation around a family dining table",
     position: "50% 58%",
     theme: "THE CONNECTION",
@@ -57,7 +57,7 @@ export const objectives = [
     title: "Expand access",
     description:
       "Make Joukh easy to reach through delivery, online ordering and a strong digital presence.",
-    image: "/images/objectives/takeaway.jpg",
+    image: "/images/objectives/delivey.png",
     alt: "A person presenting a paper takeaway bag marked for delivery",
     position: "50% 50%",
     theme: "THE POSSIBILITIES",

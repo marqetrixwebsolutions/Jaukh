@@ -33,14 +33,14 @@ export const preferences: { id: MenuPreference; label: string }[] = [
 // Dish previews use the supplied food imagery; no prices or availability are inferred.
 export const menuDishes: MenuDish[] = [
   {
-    id: "cashew-biryani",
-    name: "Chicken & cashew biryani",
-    category: "rice",
+    id: "glazed-crispy-chicken",
+    name: "Glazed crispy chicken bowl",
+    category: "small-plates",
     preference: "chicken",
-    image: asset("Vibrant Chicken Biryani Bowl with Cashews"),
+    image: asset("Glazed Crispy Chicken Bowl"),
     description:
-      "Colourful rice, chicken and golden cashews. A generous bowl made for a leisurely meal.",
-    note: "Fragrant rice · Golden cashews",
+      "Crispy glazed chicken with peppers and vegetables, served in a generous bowl.",
+    note: "Crispy chicken · Sweet glaze",
     colour: "#f3e9d9",
   },
   {
@@ -48,7 +48,7 @@ export const menuDishes: MenuDish[] = [
     name: "Grilled kebab platter",
     category: "grills",
     preference: "other",
-    image: asset("Grilled Kebabs with Citrus Cabbage Salad"),
+    image: asset("Grilled Kebab Platter in Cast Iron Bowl"),
     description:
       "Grilled kebabs served over a colourful cabbage salad, finished with bright citrus.",
     note: "From the grill · Citrus finish",
@@ -88,14 +88,14 @@ export const menuDishes: MenuDish[] = [
     colour: "#ebe4ed",
   },
   {
-    id: "shrimp-rice",
-    name: "Shrimp fried rice",
-    category: "rice",
+    id: "shrimp-citrus-salad",
+    name: "Red shrimp citrus salad",
+    category: "salads",
     preference: "seafood",
-    image: asset("Black Bowl Shrimp Fried Rice(1)"),
+    image: asset("Vibrant Red Shrimp Citrus Salad Bowl"),
     description:
-      "Shrimp and colourful fried rice, brought together in one satisfying bowl.",
-    note: "Shrimp · Colourful rice",
+      "Vibrant red shrimp with citrus and crisp salad vegetables in a black bowl.",
+    note: "Shrimp · Citrus · Fresh greens",
     colour: "#e1eae7",
   },
   {
@@ -110,14 +110,14 @@ export const menuDishes: MenuDish[] = [
     colour: "#e8eddb",
   },
   {
-    id: "biryani",
-    name: "Chicken biryani bowl",
+    id: "glazed-shrimp-biryani",
+    name: "Glazed shrimp biryani bowl",
     category: "rice",
-    preference: "chicken",
-    image: asset("Textured Black Bowl of Colorful Biryani"),
+    preference: "seafood",
+    image: asset("Glazed Shrimp Biryani Bowl"),
     description:
-      "Golden rice and chicken in a textured black bowl, with herbs and cashews scattered over the top.",
-    note: "Layered rice · Chicken & herbs",
+      "A colorful shrimp biryani with fragrant rice, vegetables and a glossy glaze.",
+    note: "Shrimp · Fragrant rice",
     colour: "#f3e8d5",
   },
   {
@@ -125,7 +125,7 @@ export const menuDishes: MenuDish[] = [
     name: "Grilled chicken salad",
     category: "salads",
     preference: "chicken",
-    image: asset("Grilled Chicken Cabbage Salad Bowl"),
+    image: asset("Grilled Chicken Bowl with Citrus Garnish"),
     description:
       "Grilled chicken paired with a colourful cabbage salad. A little freshness alongside the warmth of the grill.",
     note: "Grilled chicken · Cabbage salad",
@@ -143,14 +143,14 @@ export const menuDishes: MenuDish[] = [
     colour: "#efe0da",
   },
   {
-    id: "chicken-curry-bowl",
-    name: "Chicken curry bowl",
-    category: "curries",
-    preference: "chicken",
-    image: asset("Garnished Chicken Curry in Black Bowl(2)"),
+    id: "spiced-kebabs",
+    name: "Spiced kebabs over colorful slaw",
+    category: "grills",
+    preference: "other",
+    image: asset("Spiced Kebabs Over Colorful Slaw"),
     description:
-      "Chicken curry served in a black bowl with a fresh garnish. Familiar flavours for a comfortable meal.",
-    note: "Warming curry · Chicken",
+      "Grilled kebabs served with a colourful slaw for a bright, satisfying plate.",
+    note: "Grilled kebabs · Colorful slaw",
     colour: "#e9e1d6",
   },
 ];
