@@ -3,12 +3,13 @@
 import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   Clock3,
   MapPin,
   Menu,
+  MessageCircle,
   Phone,
+  UtensilsCrossed,
   X,
 } from "lucide-react";
 import styles from "./contact.module.css";
@@ -179,10 +180,7 @@ export function ContactExperience() {
             <button className={styles.submitButton} type="submit">
               Send your note <ArrowUpRight size={17} />
             </button>
-            <p className={styles.formNote} role="status" aria-live="polite">
-              {formNotice ||
-                "Form preview only — messages are not sent yet."}
-            </p>
+          
           </form>
 
           <aside className={styles.detailsCard} aria-label="Contact details">
@@ -208,6 +206,18 @@ export function ContactExperience() {
                 <p>+966 55 639 6430</p>
               </div>
             </a>
+            <a
+  className={styles.detailItem}
+  href="https://wa.me/966556396430"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <MessageCircle size={18} aria-hidden="true" />
+  <div>
+    <span>WHATSAPP US</span>
+    <p>+966 55 639 6430</p>
+  </div>
+</a>
             <div className={styles.detailItem}>
               <Clock3 size={18} aria-hidden="true" />
               <div>
@@ -249,13 +259,49 @@ export function ContactExperience() {
       </section>
 
       <footer className={styles.footer}>
-        <Link href="/" className={styles.footerBrand}>
-          JOUKH <span>INDIAN RESTAURANT</span>
-        </Link>
-        <p>Good food. Warm hospitality. Always a place for you.</p>
-        <Link href="/" className={styles.backLink}>
-          BACK TO JOUKH <ArrowRight size={15} />
-        </Link>
+        <div className={styles.footerTop}>
+          <div className={styles.footerBrandBlock}>
+            <Link className={styles.footerBrand} href="/" aria-label="Joukh home">
+              <img
+                src="/assests/joukh%20white%20logo.png"
+                alt=""
+                width={48}
+                height={48}
+              />
+              <span>
+                JOUKH<small>INDIAN RESTAURANT</small>
+              </span>
+            </Link>
+            <p>Indian roots. Open hearts.</p>
+          </div>
+          <div className={styles.footerLinks}>
+            <span>COME ON IN</span>
+            <Link href="/#story">Our story</Link>
+            <Link href="/menu">Our menu</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+          <div className={styles.footerLinks}>
+            <span>STAY A LITTLE</span>
+            <Link href="/#experience">The experience</Link>
+            <Link href="/#objectives">Our objectives</Link>
+            <Link href="/contact#contact-form">
+              Reservations <ArrowUpRight size={13} />
+            </Link>
+          </div>
+          <div className={styles.footerNote}>
+            <UtensilsCrossed size={25} aria-hidden="true" />
+            <p>
+              A taste beyond
+              <br />
+              the ordinary.
+            </p>
+          </div>
+        </div>
+        <div className={styles.footerBottom}>
+          <span>© 2026 JOUKH. ALL RIGHTS RESERVED.</span>
+          <span>MADE WITH WARMTH & A LITTLE SPICE.</span>
+          <Link href="/#home">BACK TO TOP ↗</Link>
+        </div>
       </footer>
     </main>
   );

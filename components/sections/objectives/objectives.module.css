@@ -32,7 +32,7 @@
 .eyebrow {
   margin: 0 0 12px;
   color: var(--gold);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 2px;
   line-height: 1.5;
   font-weight: 600;
@@ -116,7 +116,7 @@
   left: 24px;
   top: 22px;
   color: #f5e8d9;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 2px;
   font-weight: 500;
 }
@@ -160,7 +160,7 @@
   margin: 0;
   padding: 0 0 0 0;
   color: #d0c4b8;
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.7;
   max-width: 390px;
 }
@@ -323,7 +323,7 @@
     padding-top: 5px;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 1.7px;
   }
   .track {
@@ -332,7 +332,7 @@
   .photoTag {
     left: 18px;
     top: 18px;
-    font-size: 7px;
+    font-size: 9px;
   }
   .caption {
     gap: 12px;
@@ -345,7 +345,7 @@
     font-size: 21px;
   }
   .caption > p {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.65;
     padding: 0;
   }
