@@ -256,7 +256,7 @@
   max-width: 540px;
   margin: 14px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -376,17 +376,6 @@
   letter-spacing: -0.8px;
 }
 
-.sampleNotice {
-  display: inline-flex;
-  margin: 12px 0 10px;
-  border: 1px solid rgb(229 191 125 / 20%);
-  border-radius: 999px;
-  padding: 6px 9px;
-  color: #c5a873;
-  background: rgb(229 191 125 / 6%);
-  font-size: 9px;
-}
-
 .detailItem {
   display: flex;
   align-items: flex-start;
@@ -419,7 +408,7 @@
 .detailItem p {
   margin: 6px 0 0;
   color: #e6ded5;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 

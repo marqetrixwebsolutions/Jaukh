@@ -256,7 +256,7 @@ export function ObjectivesSection({ onReserve }: { onReserve: () => void }) {
           Reserve your table <ArrowUpRight size={18} />
         </button>
         <p className={styles.ctaDetail}>
-          FAMILY DINNERS · LONG CONVERSATIONS · JUST BECAUSE
+          
         </p>
       </section>
     </>

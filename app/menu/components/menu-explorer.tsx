@@ -62,9 +62,9 @@ export function MenuExplorer() {
           >
             The menu
           </Link>
-          <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
+          {/* <Link href="/#story" onClick={() => setMobileNavOpen(false)}>
          The experience
-          </Link>
+          </Link> */}
           <Link href="/contact" onClick={() => setMobileNavOpen(false)}>
             Contact
           </Link>

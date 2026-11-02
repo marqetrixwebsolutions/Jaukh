@@ -6,7 +6,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Clock3,
-  Mail,
   MapPin,
   Menu,
   Phone,
@@ -14,8 +13,10 @@ import {
 } from "lucide-react";
 import styles from "./contact.module.css";
 
-const sampleAddress = "12 Example Lane, Your City, India";
-const mapSearch = encodeURIComponent(sampleAddress);
+const restaurantAddress =
+  "Al Cheikh Hasan Ibn Hussein Ibn Ali, Al Hamra, Riyadh 13217, Saudi Arabia";
+const restaurantMapUrl = "https://maps.app.goo.gl/oxQ27pU3Pm77HmqG9";
+const mapSearch = encodeURIComponent(restaurantAddress);
 
 export function ContactExperience() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -83,9 +84,9 @@ export function ContactExperience() {
           <Link href="/menu" onClick={() => setMobileNavOpen(false)}>
             The menu
           </Link>
-          <Link href="/" onClick={() => setMobileNavOpen(false)}>
+          {/* <Link href="/" onClick={() => setMobileNavOpen(false)}>
             The Experience
-          </Link>
+          </Link> */}
           <Link href="/contact" aria-current="page" onClick={() => setMobileNavOpen(false)}>
             Contact
           </Link>
@@ -180,43 +181,38 @@ export function ContactExperience() {
             </button>
             <p className={styles.formNote} role="status" aria-live="polite">
               {formNotice ||
-                "Form preview only — messages are not sent yet. Sample contact details are shown."}
+                "Form preview only — messages are not sent yet."}
             </p>
           </form>
 
           <aside className={styles.detailsCard} aria-label="Contact details">
             <span className={styles.detailsNumber}>01 / COME ON IN</span>
             <h3>A place at our table.</h3>
-            <p className={styles.sampleNotice}>
-              Sample details — replace before publishing.
-            </p>
 
-            <div className={styles.detailItem}>
+            <a
+              className={styles.detailItem}
+              href={restaurantMapUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               <MapPin size={19} aria-hidden="true" />
               <div>
                 <span>FIND US</span>
-                <p>{sampleAddress}</p>
+                <p>{restaurantAddress}</p>
               </div>
-            </div>
-            <a className={styles.detailItem} href="tel:+910000000000">
+            </a>
+            <a className={styles.detailItem} href="tel:+966556396430">
               <Phone size={18} aria-hidden="true" />
               <div>
                 <span>GIVE US A CALL</span>
-                <p>+91 00000 00000</p>
-              </div>
-            </a>
-            <a className={styles.detailItem} href="mailto:hello@example.com">
-              <Mail size={18} aria-hidden="true" />
-              <div>
-                <span>DROP US A LINE</span>
-                <p>hello@example.com</p>
+                <p>+966 55 639 6430</p>
               </div>
             </a>
             <div className={styles.detailItem}>
               <Clock3 size={18} aria-hidden="true" />
               <div>
                 <span>WHEN WE’RE HERE</span>
-                <p>Daily · 12:00 pm – 10:30 pm</p>
+                <p>Daily · 12:00 pm – 2:00 am</p>
               </div>
             </div>
           </aside>
@@ -230,25 +226,20 @@ export function ContactExperience() {
             <h2 id="map-title">A table is waiting.</h2>
           </div>
           <p>
-            Find us at our sample location. We can’t wait to welcome you in.
+            Find us in Al Hamra, Riyadh. We can’t wait to welcome you in.
           </p>
         </div>
         <div className={styles.mapFrame}>
           <iframe
-            title="Map preview for the sample JOUKH address"
+            title="Map preview for JOUKH in Al Hamra, Riyadh"
             src={`https://maps.google.com/maps?q=${mapSearch}&output=embed`}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-          <div className={styles.mapLabel}>
-            <MapPin size={18} />
-            <span>
-              JOUKH <small>MAP PREVIEW · SAMPLE ADDRESS</small>
-            </span>
-          </div>
+          
           <a
             className={styles.mapLink}
-            href={`https://www.google.com/maps/search/?api=1&query=${mapSearch}`}
+            href={restaurantMapUrl}
             target="_blank"
             rel="noreferrer"
           >

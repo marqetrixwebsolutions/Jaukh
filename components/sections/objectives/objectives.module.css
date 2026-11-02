@@ -160,7 +160,7 @@
   margin: 0;
   padding: 0 0 0 0;
   color: #d0c4b8;
-  font-size: 12px;
+  font-size: 17px;
   line-height: 1.7;
   max-width: 390px;
 }
@@ -345,7 +345,7 @@
     font-size: 21px;
   }
   .caption > p {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.65;
     padding: 0;
   }

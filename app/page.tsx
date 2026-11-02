@@ -663,7 +663,7 @@ export default function Home() {
             // ["Home", "home"],
             ["Our story", "story"],
             ["The menu", "menu"],
-            ["The experience", "experience"],
+            // ["The experience", "experience"],
             ["Contact", "contact"],
           ].map(([label, id]) => (
             <a
