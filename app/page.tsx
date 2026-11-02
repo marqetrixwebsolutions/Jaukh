@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -9,6 +8,7 @@ import Lenis from "lenis";
 import { FloatingFoodHero } from "@/components/ui/hero-section-7";
 import { CircularGallery } from "@/components/ui/circular-gallery-2";
 import { ObjectivesSection } from "@/components/sections/objectives/objectives-gallery";
+import { useReservation } from "@/components/reservations/reservation-provider";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -138,7 +138,7 @@ function Brand() {
 }
 
 export default function Home() {
-  const router = useRouter();
+  const { openReservation } = useReservation();
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -147,14 +147,8 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [activeDish, setActiveDish] = useState(0);
-  const [reservation, setReservation] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [today, setToday] = useState("");
   const logoTransferDistance = () => Math.min(window.innerHeight * 0.3, 240);
   useEffect(() => {
-    setToday(
-      new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }),
-    );
     gsap.registerPlugin(ScrollTrigger, SplitText);
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -580,9 +574,9 @@ export default function Home() {
     };
   }, []);
   useEffect(() => {
-    if (reservation || selected !== null) dialog.current?.showModal();
+    if (selected !== null) dialog.current?.showModal();
     else dialog.current?.close();
-  }, [reservation, selected]);
+  }, [selected]);
   useEffect(() => {
     let previousY = window.scrollY;
 
@@ -610,12 +604,10 @@ export default function Home() {
     };
   }, []);
   const close = () => {
-    setReservation(false);
     setSelected(null);
-    setSaved(false);
   };
   const reserve = () => {
-    router.push("/contact");
+    openReservation();
   };
 
   return (
@@ -1211,7 +1203,7 @@ export default function Home() {
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}
-        aria-label={selected !== null ? "Menu preview" : "Plan your visit"}
+        aria-label="Menu preview"
       >
         <button
           className="dialog-close"
@@ -1220,7 +1212,7 @@ export default function Home() {
         >
           <X />
         </button>
-        {selected !== null ? (
+        {selected !== null && (
           <>
             <div className="eyebrow">A TASTE OF THE MENU</div>
             <h2>{categories[selected].name}</h2>
@@ -1251,100 +1243,6 @@ export default function Home() {
             >
               Plan a visit <ArrowUpRight size={16} />
             </button>
-          </>
-        ) : (
-          <>
-            <div className="eyebrow">MAKE YOURSELF AT HOME</div>
-            <h2>
-              A table for
-              <br />
-              <em>something special.</em>
-            </h2>
-            {saved ? (
-              <div className="request-message" role="status">
-                <Heart />
-                <h3>Your visit is planned.</h3>
-                <p>
-                  Your details have been saved on this device. This is a
-                  preview; a restaurant booking has not been made.
-                </p>
-                <button className="button" onClick={close}>
-                  Lovely, thank you <ArrowRight size={16} />
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  localStorage.setItem(
-                    "joukh-visit",
-                    JSON.stringify(
-                      Object.fromEntries(new FormData(e.currentTarget)),
-                    ),
-                  );
-                  setSaved(true);
-                }}
-              >
-                <p className="form-note">
-                  Plan your visit below. This preview saves your details on this
-                  device and does not send a reservation.
-                </p>
-                <label>
-                  Your name
-                  <input
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Name for the table"
-                    required
-                  />
-                </label>
-                <label>
-                  Email address
-                  <input
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="you@example.com"
-                    required
-                  />
-                </label>
-                <div className="form-row">
-                  <label>
-                    Date
-                    <input name="date" type="date" min={today} required />
-                  </label>
-                  <label>
-                    Time
-                    <select name="time">
-                      {[
-                        "12:00",
-                        "13:00",
-                        "14:00",
-                        "18:00",
-                        "19:00",
-                        "20:00",
-                        "21:00",
-                      ].map((t) => (
-                        <option key={t}>{t}</option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-                <label>
-                  Guests
-                  <select name="guests" defaultValue="2">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                      <option value={n} key={n}>
-                        {n} {n === 1 ? "guest" : "guests"}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <button className="button" type="submit">
-                  Save my visit <ArrowUpRight size={16} />
-                </button>
-              </form>
-            )}
           </>
         )}
       </dialog>

@@ -11,9 +11,11 @@ import {
 import { DraggableMenuGrid } from "./draggable-menu-grid";
 import { MenuFilters } from "./menu-filters";
 import { DishDetails, type DishSelection } from "./dish-details";
+import { useReservation } from "@/components/reservations/reservation-provider";
 import styles from "../menu.module.css";
 
 export function MenuExplorer() {
+  const { openReservation } = useReservation();
   const [category, setCategory] = useState<MenuCategory>("all");
   const [preference, setPreference] = useState<MenuPreference>("all");
   const [resetKey, setResetKey] = useState(0);
@@ -69,9 +71,13 @@ export function MenuExplorer() {
             Contact
           </Link>
         </nav>
-        <Link className={styles.homeLink} href="/contact">
+        <button
+          className={styles.homeLink}
+          type="button"
+          onClick={openReservation}
+        >
           RESERVE A TABLE <ArrowUpRight size={15} />
-        </Link>
+        </button>
         <button
           className={styles.mobileToggle}
           type="button"

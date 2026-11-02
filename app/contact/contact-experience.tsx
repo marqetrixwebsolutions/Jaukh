@@ -12,6 +12,7 @@ import {
   UtensilsCrossed,
   X,
 } from "lucide-react";
+import { useReservation } from "@/components/reservations/reservation-provider";
 import styles from "./contact.module.css";
 
 const restaurantAddress =
@@ -20,6 +21,7 @@ const restaurantMapUrl =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4334.333179364254!2d46.76672719999999!3d24.7898683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2effa9f50cd1c1%3A0xf66ca5db3a16a6e7!2sJoukh%20Indian%20Restaurant!5e1!3m2!1sen!2sin!4v1793617836770!5m2!1sen!2sin";
 
 export function ContactExperience() {
+  const { openReservation } = useReservation();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
   const [formNotice, setFormNotice] = useState("");
@@ -92,9 +94,16 @@ export function ContactExperience() {
             Contact
           </Link>
         </nav>
-        <a className={styles.headerCta} href="#contact-form">
-          Say hello <ArrowUpRight size={16} />
-        </a>
+        <button
+          className={styles.headerCta}
+          type="button"
+          onClick={() => {
+            setMobileNavOpen(false);
+            openReservation();
+          }}
+        >
+          RESERVE A TABLE <ArrowUpRight size={16} />
+        </button>
         <button
           className={styles.mobileToggle}
           type="button"

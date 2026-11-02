@@ -1404,7 +1404,7 @@ body {
 
 .showcase-link,
 .plate-bottom .text-link {
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .ingredient-label span {
@@ -1412,7 +1412,7 @@ body {
 }
 
 .plate-bottom {
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .menu-info p {
@@ -1444,7 +1444,7 @@ body {
 }
 
 .plate-bottom p {
-  font-size: 13px;
+  font-size: 17px;
 }
 
 @media (max-width: 767px) {
@@ -1482,11 +1482,11 @@ body {
   }
 
   .plate-bottom {
-    font-size: 12px;
+    font-size: 17px;
   }
 
   .plate-bottom p {
-    font-size: 12px;
+    font-size: 17px;
   }
 }
 
@@ -1500,7 +1500,7 @@ body {
   }
 
   .plate-bottom .text-link {
-    font-size: 12px;
+    font-size: 17px;
   }
 
   .footer-bottom {

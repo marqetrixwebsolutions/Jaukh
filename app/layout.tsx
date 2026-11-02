@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { siteUrl } from "@/lib/site";
+import { ReservationProvider } from "@/components/reservations/reservation-provider";
 import "./globals.css";
 import "./editorial.css";
 
@@ -86,7 +87,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${manrope.variable} h-full antialiased`}>
-      <body>{children}</body>
+      <body>
+        <ReservationProvider>{children}</ReservationProvider>
+      </body>
     </html>
   );
 }

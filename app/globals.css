@@ -1629,10 +1629,10 @@ p {
     flex-direction: column;
   }
   .plate-bottom p {
-    font-size: 10px;
+    font-size: 17px;
   }
   .plate-bottom .text-link {
-    font-size: 10px;
+    font-size: 17px;
   }
   .vision {
     grid-template-columns: 1fr;
