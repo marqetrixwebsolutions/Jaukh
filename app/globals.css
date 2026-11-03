@@ -407,21 +407,32 @@ p {
 }
 .ingredient-slice {
   position: absolute;
-  inset: 0;
-  background: url("/images/biryani-exploded.png") center/100% 100% no-repeat;
+  left: 0;
+  width: 100%;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   will-change: transform;
 }
 .ingredient-top {
-  clip-path: inset(0 0 77% 0);
+  top: 0;
+  height: 22.9167%;
+  background-image: url("/images/biryani-layer-herbs.png");
 }
 .ingredient-middle {
-  clip-path: inset(21% 0 51% 0);
+  top: 22.9167%;
+  height: 26.0417%;
+  background-image: url("/images/biryani-layer-chicken.png");
 }
 .ingredient-lower {
-  clip-path: inset(47% 0 32% 0);
+  top: 48.9583%;
+  height: 21.3542%;
+  background-image: url("/images/biryani-layer-rice.png");
 }
 .ingredient-bowl {
-  clip-path: inset(66% 0 0 0);
+  top: 70.3125%;
+  height: 29.6875%;
+  background-image: url("/images/biryani-layer-bowl.png");
 }
 .ingredient-label {
   position: absolute;

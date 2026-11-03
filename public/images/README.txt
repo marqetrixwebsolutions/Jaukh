@@ -17,4 +17,4 @@ hero-tomato.png: https://cdn.21st.dev/assets/mirror/e7/e758e9c35a8360f201c40d0bf
 biryani-exploded.png: Created using the built-in image-generation tool.
 Generation prompt: Photorealistic premium Indian chicken biryani exploded-view asset, portrait 1024x1536, transparent background. Ivory ceramic bowl filled with golden saffron basmati rice at bottom. Three separated floating groups above: rice and caramelized onions, cooked chicken and rice, mint leaves and whole spices. Oblique front view, studio food photography, warm natural light. No text or graphics.
 Final edit prompt: Remove all background and background shadows. Preserve only bowl, rice, chicken, herbs and spices in the exact same positions and canvas size. Truly transparent alpha channel between and around ingredients. Preserve food appearance and dimensions.
-The PNG alpha channel is preserved. CSS clips its four groups so GSAP can animate them independently.
+The source PNG alpha channel is preserved. Four aligned transparent layer PNGs are cropped at the natural gaps between groups and animated independently with GSAP.
