@@ -1036,6 +1036,21 @@ p {
   color: var(--muted);
   margin: 15px 0 25px;
 }
+.reservation-dialog .eyebrow,
+.reservation-dialog .form-note,
+.reservation-dialog form > label,
+.reservation-dialog .form-row label,
+.reservation-dialog input,
+.reservation-dialog select,
+.reservation-dialog form > .button,
+.reservation-dialog .request-message p,
+.reservation-dialog .request-message .button {
+  font-size: 15px;
+}
+.reservation-dialog form > label,
+.reservation-dialog .form-row label {
+  line-height: 1.5;
+}
 .floating-food-hero {
   position: relative;
   isolation: isolate;

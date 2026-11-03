@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -15,44 +15,17 @@ import {
 import { useReservation } from "@/components/reservations/reservation-provider";
 import styles from "./contact.module.css";
 
-const restaurantAddress =
-  "Al Cheikh Hasan Ibn Hussein Ibn Ali, Al Hamra, Riyadh 13217, Saudi Arabia";
+const restaurantAddress = {
+  lineOne: "Al Cheikh Hasan Ibn Hussein Ibn Ali, Al Hamra,",
+  lineTwo: "Riyadh 13217, Saudi Arabia",
+};
 const restaurantMapUrl =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4334.333179364254!2d46.76672719999999!3d24.7898683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2effa9f50cd1c1%3A0xf66ca5db3a16a6e7!2sJoukh%20Indian%20Restaurant!5e1!3m2!1sen!2sin!4v1793617836770!5m2!1sen!2sin";
 
 export function ContactExperience() {
   const { openReservation } = useReservation();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [headerVisible, setHeaderVisible] = useState(true);
   const [formNotice, setFormNotice] = useState("");
-
-  useEffect(() => {
-    let previousY = window.scrollY;
-    let idleTimer: ReturnType<typeof setTimeout> | undefined;
-
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const direction = currentY - previousY;
-      previousY = currentY;
-
-      if (idleTimer) clearTimeout(idleTimer);
-      if (currentY <= 12) {
-        setHeaderVisible(true);
-        return;
-      }
-
-      if (direction > 2) setHeaderVisible(false);
-      else if (direction < -2) setHeaderVisible(true);
-
-      idleTimer = setTimeout(() => setHeaderVisible(false), 1800);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (idleTimer) clearTimeout(idleTimer);
-    };
-  }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -63,9 +36,7 @@ export function ContactExperience() {
 
   return (
     <main className={styles.contactPage}>
-      <header
-        className={`${styles.header}${headerVisible ? "" : ` ${styles.headerHidden}`}`}
-      >
+      <header className={styles.header}>
         <Link className={styles.brand} href="/" aria-label="Joukh home">
           <img
             src="/assests/joukh%20white%20logo.png"
@@ -205,7 +176,11 @@ export function ContactExperience() {
               <MapPin size={19} aria-hidden="true" />
               <div>
                 <span>FIND US</span>
-                <p>{restaurantAddress}</p>
+                <p>
+                  {restaurantAddress.lineOne}
+                  <br />
+                  {restaurantAddress.lineTwo}
+                </p>
               </div>
             </a>
             <a className={styles.detailItem} href="tel:+966556396430">
